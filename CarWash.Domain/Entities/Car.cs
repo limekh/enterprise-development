@@ -33,5 +33,5 @@ public class Car
     /// <summary>
     /// Заказы на обслуживание автомобиля.
     /// </summary>
-    public ICollection<Order> Orders { get; set; } = new List<Order>();
+    public List<Order> Orders { get; set; } = new List<Order>();
 }

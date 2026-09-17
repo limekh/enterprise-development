@@ -33,10 +33,10 @@ public class Client
     /// <summary>
     /// Автомобили клиента.
     /// </summary>
-    public ICollection<Car> Cars { get; set; } = new List<Car>();
+    public List<Car> Cars { get; set; } = new List<Car>();
 
     /// <summary>
     /// Заказы клиента.
     /// </summary>
-    public ICollection<Order> Orders { get; set; } = new List<Order>();
+    public List<Order> Orders { get; set; } = new List<Order>();
 }
