@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-	<ProjectReference Include="..\CarWash.Domain.Shared\CarWash.Domain.Shared.csproj" />
-  </ItemGroup>
-
 </Project>

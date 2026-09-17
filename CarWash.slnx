@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="CarWash.Domain/CarWash.Domain.csproj" />
   <Project Path="CarWash.Tests/CarWash.Tests.csproj" />
+  <Project Path="CarWash.Domain.Shared/CarWash.Domain.Shared.csproj" />
 </Solution>
