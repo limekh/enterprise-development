@@ -9,6 +9,11 @@ namespace CarWash.Domain.Data;
 public static class CarWashData
 {
     /// <summary>
+    /// Текущее время для тестовых данных
+    /// </summary>
+    public static DateTime Now { get; } = new(2026, 9, 17, 12, 0, 0);
+
+    /// <summary>
     /// Клиенты автомойки
     /// </summary>
     public static List<Client> Clients { get; } =
@@ -240,10 +245,12 @@ public static class CarWashData
         CreateOrder(2, 1, 2, 2, new(2026, 9, 11, 10, 0, 0), 2),
         CreateOrder(3, 1, 1, 1, new(2026, 9, 12, 11, 0, 0), 1),
         CreateOrder(4, 1, 2, 3, new(2026, 9, 13, 12, 0, 0), 2),
+        CreateOrder(26, 1, 2, 3, new(2026, 9, 17, 11, 30, 0), 2),
 
         CreateOrder(5, 2, 3, 1, new(2026, 9, 10, 10, 0, 0), 2),
         CreateOrder(6, 2, 4, 2, new(2026, 9, 11, 11, 0, 0), 3),
         CreateOrder(7, 2, 4, 1, new(2026, 9, 13, 13, 0, 0), 1),
+        CreateOrder(27, 2, 3, 1, new(2026, 9, 17, 11, 30, 0), 3),
 
         CreateOrder(8, 3, 5, 1, new(2026, 9, 10, 12, 0, 0), 3),
         CreateOrder(9, 3, 5, 2, new(2026, 9, 11, 13, 0, 0), 4),
@@ -254,6 +261,7 @@ public static class CarWashData
         CreateOrder(12, 5, 7, 1, new(2026, 9, 10, 14, 0, 0), 1),
         CreateOrder(13, 5, 7, 2, new(2026, 9, 11, 15, 0, 0), 2),
         CreateOrder(14, 5, 7, 1, new(2026, 9, 15, 11, 0, 0), 4),
+        CreateOrder(28, 5, 7, 2, new(2026, 9, 17, 11, 50, 0), 4),
 
         CreateOrder(15, 6, 8, 6, new(2026, 9, 10, 15, 0, 0), 4),
 

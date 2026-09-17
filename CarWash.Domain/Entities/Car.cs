@@ -1,37 +1,37 @@
 namespace CarWash.Domain.Entities;
 
 /// <summary>
-/// Автомобиль клиента.
+/// Автомобиль клиента
 /// </summary>
 public class Car
 {
     /// <summary>
-    /// Уникальный идентификатор автомобиля.
+    /// Уникальный идентификатор автомобиля
     /// </summary>
     public int Id { get; set; }
 
     /// <summary>
-    /// Государственный регистрационный номер автомобиля.
+    /// Государственный регистрационный номер автомобиля
     /// </summary>
     public required string LicensePlate { get; set; }
 
     /// <summary>
-    /// Марка автомобиля.
+    /// Марка автомобиля
     /// </summary>
     public required string Brand { get; set; }
 
     /// <summary>
-    /// Идентификатор владельца автомобиля.
+    /// Идентификатор владельца автомобиля
     /// </summary>
     public int ClientId { get; set; }
 
     /// <summary>
-    /// Владелец автомобиля.
+    /// Владелец автомобиля
     /// </summary>
     public required Client Client { get; set; }
 
     /// <summary>
-    /// Заказы на обслуживание автомобиля.
+    /// Заказы на обслуживание автомобиля
     /// </summary>
     public List<Order> Orders { get; set; } = new List<Order>();
 }

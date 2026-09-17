@@ -1,52 +1,52 @@
 namespace CarWash.Domain.Entities;
 
 /// <summary>
-/// Заказ на обслуживание автомобиля.
+/// Заказ на обслуживание автомобиля
 /// </summary>
 public class Order
 {
     /// <summary>
-    /// Уникальный идентификатор заказа.
+    /// Уникальный идентификатор заказа
     /// </summary>
     public int Id { get; set; }
 
     /// <summary>
-    /// Идентификатор клиента.
+    /// Идентификатор клиента
     /// </summary>
     public int ClientId { get; set; }
 
     /// <summary>
-    /// Клиент, оформивший заказ.
+    /// Клиент, оформивший заказ
     /// </summary>
     public required Client Client { get; set; }
 
     /// <summary>
-    /// Идентификатор автомобиля.
+    /// Идентификатор автомобиля
     /// </summary>
     public int CarId { get; set; }
 
     /// <summary>
-    /// Автомобиль, обслуживаемый по заказу.
+    /// Автомобиль, обслуживаемый по заказу
     /// </summary>
     public required Car Car { get; set; }
 
     /// <summary>
-    /// Идентификатор услуги.
+    /// Идентификатор услуги
     /// </summary>
     public int ServiceId { get; set; }
 
     /// <summary>
-    /// Услуга, выполняемая по заказу.
+    /// Услуга, выполняемая по заказу
     /// </summary>
     public required Service Service { get; set; }
 
     /// <summary>
-    /// Дата и время начала обслуживания.
+    /// Дата и время начала обслуживания
     /// </summary>
     public DateTime StartTime { get; set; }
 
     /// <summary>
-    /// Номер бокса мойки.
+    /// Номер бокса мойки
     /// </summary>
     public int WashBoxNumber { get; set; }
 }

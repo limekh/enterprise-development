@@ -31,12 +31,12 @@ public class Client
     public required string Phone { get; set; }
 
     /// <summary>
-    /// Автомобили клиента.
+    /// Автомобили клиента
     /// </summary>
     public List<Car> Cars { get; set; } = new List<Car>();
 
     /// <summary>
-    /// Заказы клиента.
+    /// Заказы клиента
     /// </summary>
     public List<Order> Orders { get; set; } = new List<Order>();
 }
