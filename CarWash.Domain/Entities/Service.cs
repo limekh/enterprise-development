@@ -3,37 +3,37 @@ namespace CarWash.Domain.Entities;
 using CarWash.Domain.Shared.Enums;
 
 /// <summary>
-/// Услуга автомойки
+/// РЈСЃР»СѓРіР° Р°РІС‚РѕРјРѕР№РєРё
 /// </summary>
 public class Service
 {
     /// <summary>
-    /// Уникальный идентификатор услуги
+    /// РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СѓСЃР»СѓРіРё
     /// </summary>
     public int Id { get; set; }
 
     /// <summary>
-    /// Название услуги
+    /// РќР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё
     /// </summary>
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
-    /// Категория автомобиля, для которой предназначена услуга
+    /// РљР°С‚РµРіРѕСЂРёСЏ Р°РІС‚РѕРјРѕР±РёР»СЏ, РґР»СЏ РєРѕС‚РѕСЂРѕР№ РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅР° СѓСЃР»СѓРіР°
     /// </summary>
     public CarCategory CarCategory { get; set; }
 
     /// <summary>
-    /// Стоимость услуги
+    /// РЎС‚РѕРёРјРѕСЃС‚СЊ СѓСЃР»СѓРіРё
     /// </summary>
     public decimal Price { get; set; }
 
     /// <summary>
-    /// Продолжительность услуги в минутах
+    /// РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ СѓСЃР»СѓРіРё РІ РјРёРЅСѓС‚Р°С…
     /// </summary>
     public int DurationMinutes { get; set; }
 
     /// <summary>
-    /// Заказы, в которых была оказана услуга
+    /// Р—Р°РєР°Р·С‹, РІ РєРѕС‚РѕСЂС‹С… Р±С‹Р»Р° РѕРєР°Р·Р°РЅР° СѓСЃР»СѓРіР°
     /// </summary>
     public List<Order> Orders { get; set; } = new List<Order>();
 }

@@ -1,42 +1,42 @@
 namespace CarWash.Domain.Entities;
 
 /// <summary>
-/// Клиент автомойки
+/// РљР»РёРµРЅС‚ Р°РІС‚РѕРјРѕР№РєРё
 /// </summary>
 public class Client
 {
     /// <summary>
-    /// Уникальный идентификатор клиента
+    /// РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР»РёРµРЅС‚Р°
     /// </summary>
     public int Id { get; set; }
 
     /// <summary>
-    /// Фамилия клиента
+    /// Р¤Р°РјРёР»РёСЏ РєР»РёРµРЅС‚Р°
     /// </summary>
     public required string LastName { get; set; }
 
     /// <summary>
-    /// Имя клиента
+    /// РРјСЏ РєР»РёРµРЅС‚Р°
     /// </summary>
     public required string FirstName { get; set; }
 
     /// <summary>
-    /// Отчество клиента
+    /// РћС‚С‡РµСЃС‚РІРѕ РєР»РёРµРЅС‚Р°
     /// </summary>
     public string? Patronymic { get; set; }
 
     /// <summary>
-    /// Номер телефона клиента
+    /// РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° РєР»РёРµРЅС‚Р°
     /// </summary>
     public required string Phone { get; set; }
 
     /// <summary>
-    /// Автомобили клиента
+    /// РђРІС‚РѕРјРѕР±РёР»Рё РєР»РёРµРЅС‚Р°
     /// </summary>
     public List<Car> Cars { get; set; } = new List<Car>();
 
     /// <summary>
-    /// Заказы клиента
+    /// Р—Р°РєР°Р·С‹ РєР»РёРµРЅС‚Р°
     /// </summary>
     public List<Order> Orders { get; set; } = new List<Order>();
 }

@@ -1,52 +1,52 @@
 namespace CarWash.Domain.Entities;
 
 /// <summary>
-/// Заказ на обслуживание автомобиля
+/// Р—Р°РєР°Р· РЅР° РѕР±СЃР»СѓР¶РёРІР°РЅРёРµ Р°РІС‚РѕРјРѕР±РёР»СЏ
 /// </summary>
 public class Order
 {
     /// <summary>
-    /// Уникальный идентификатор заказа
+    /// РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РєР°Р·Р°
     /// </summary>
     public int Id { get; set; }
 
     /// <summary>
-    /// Идентификатор клиента
+    /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР»РёРµРЅС‚Р°
     /// </summary>
     public int ClientId { get; set; }
 
     /// <summary>
-    /// Клиент, оформивший заказ
+    /// РљР»РёРµРЅС‚, РѕС„РѕСЂРјРёРІС€РёР№ Р·Р°РєР°Р·
     /// </summary>
     public required Client Client { get; set; }
 
     /// <summary>
-    /// Идентификатор автомобиля
+    /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РІС‚РѕРјРѕР±РёР»СЏ
     /// </summary>
     public int CarId { get; set; }
 
     /// <summary>
-    /// Автомобиль, обслуживаемый по заказу
+    /// РђРІС‚РѕРјРѕР±РёР»СЊ, РѕР±СЃР»СѓР¶РёРІР°РµРјС‹Р№ РїРѕ Р·Р°РєР°Р·Сѓ
     /// </summary>
     public required Car Car { get; set; }
 
     /// <summary>
-    /// Идентификатор услуги
+    /// РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СѓСЃР»СѓРіРё
     /// </summary>
     public int ServiceId { get; set; }
 
     /// <summary>
-    /// Услуга, выполняемая по заказу
+    /// РЈСЃР»СѓРіР°, РІС‹РїРѕР»РЅСЏРµРјР°СЏ РїРѕ Р·Р°РєР°Р·Сѓ
     /// </summary>
     public required Service Service { get; set; }
 
     /// <summary>
-    /// Дата и время начала обслуживания
+    /// Р”Р°С‚Р° Рё РІСЂРµРјСЏ РЅР°С‡Р°Р»Р° РѕР±СЃР»СѓР¶РёРІР°РЅРёСЏ
     /// </summary>
     public DateTime StartTime { get; set; }
 
     /// <summary>
-    /// Номер бокса мойки
+    /// РќРѕРјРµСЂ Р±РѕРєСЃР° РјРѕР№РєРё
     /// </summary>
     public int WashBoxNumber { get; set; }
 }

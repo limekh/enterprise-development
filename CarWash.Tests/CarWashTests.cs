@@ -5,7 +5,7 @@ namespace CarWash.Tests;
 public class CarWashTest
 {
     /// <summary>
-    /// 1. Получить топ 5 клиентов по количеству посещений автомойки
+    /// 1. РџРѕР»СѓС‡РёС‚СЊ С‚РѕРї 5 РєР»РёРµРЅС‚РѕРІ РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ РїРѕСЃРµС‰РµРЅРёР№ Р°РІС‚РѕРјРѕР№РєРё
     /// </summary>
     [Fact]
     public void GetTopFiveClientsByVisitCount()
@@ -15,11 +15,7 @@ public class CarWashTest
 
         var expectedClientIds = new[]
         {
-            1,
-            2,
-            5,
-            3, 
-            4  
+            1, 2, 5, 3, 4  
         };
 
         // Act
@@ -41,7 +37,7 @@ public class CarWashTest
     }
 
     /// <summary>
-    /// 2. Получить автомобили, находящиеся на мойке в данный момент
+    /// 2. РџРѕР»СѓС‡РёС‚СЊ Р°РІС‚РѕРјРѕР±РёР»Рё, РЅР°С…РѕРґСЏС‰РёРµСЃСЏ РЅР° РјРѕР№РєРµ РІ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚
     /// </summary>
     [Fact]
     public void GetCarsCurrentlyAtCarWash()
@@ -52,9 +48,7 @@ public class CarWashTest
 
         var expectedCarIds = new[]
         {
-            2,
-            3,
-            7
+            2, 3, 7
         };
 
         // Act
@@ -70,7 +64,7 @@ public class CarWashTest
     }
 
     /// <summary>
-    /// 3. Получить топ 5 наиболее популярных услуг автомойки
+    /// 3. РџРѕР»СѓС‡РёС‚СЊ С‚РѕРї 5 РЅР°РёР±РѕР»РµРµ РїРѕРїСѓР»СЏСЂРЅС‹С… СѓСЃР»СѓРі Р°РІС‚РѕРјРѕР№РєРё
     /// </summary>
     [Fact]
     public void GetTopPopularServices()
@@ -80,11 +74,7 @@ public class CarWashTest
 
         var expectedServiceIds = new[]
         {
-            1,
-            2,
-            3,
-            5,
-            4
+            1, 2, 3, 5, 4
         };
 
         // Act
@@ -106,7 +96,7 @@ public class CarWashTest
     }
 
     /// <summary>
-    /// 4. Получить время освобождения выбранного бокса
+    /// 4. РџРѕР»СѓС‡РёС‚СЊ РІСЂРµРјСЏ РѕСЃРІРѕР±РѕР¶РґРµРЅРёСЏ РІС‹Р±СЂР°РЅРЅРѕРіРѕ Р±РѕРєСЃР°
     /// </summary>
     [Fact]
     public void GetWashBoxReleaseTime()
@@ -129,7 +119,7 @@ public class CarWashTest
     }
 
     /// <summary>
-    /// 5. Получить суммарную выручку по каждой услуге.
+    /// 5. РџРѕР»СѓС‡РёС‚СЊ СЃСѓРјРјР°СЂРЅСѓСЋ РІС‹СЂСѓС‡РєСѓ РїРѕ РєР°Р¶РґРѕР№ СѓСЃР»СѓРіРµ.
     /// </summary>
     [Theory]
     [InlineData(1, 16500)]
