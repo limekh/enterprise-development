@@ -2,7 +2,7 @@ using CarWash.Domain.Data;
 
 namespace CarWash.Tests;
 
-public class CarWashTest
+public class CarWashTests
 {
     /// <summary>
     /// 1. Получить топ 5 клиентов по количеству посещений автомойки

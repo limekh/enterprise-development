@@ -35,5 +35,5 @@ public class Service
     /// <summary>
     /// Заказы, в которых была оказана услуга
     /// </summary>
-    public List<Order> Orders { get; set; } = new List<Order>();
+    public List<Order> Orders { get; set; } = [];
 }
