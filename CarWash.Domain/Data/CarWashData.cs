@@ -124,8 +124,8 @@ public static class CarWashData
         new Car { Id = 1, LicensePlate = "А111АА", Brand = "Chevrolet", ClientId = 1, Client = Clients[0] },
         new Car { Id = 2, LicensePlate = "А222АА", Brand = "Cadillac", ClientId = 1, Client = Clients[0] },
 
-        new Car { Id = 3, LicensePlate = "O248BH", Brand = "BMW", ClientId = 2, Client = Clients[1] },
-        new Car { Id = 4, LicensePlate = "O249BH", Brand = "BMW", ClientId = 2, Client = Clients[1] },
+        new Car { Id = 3, LicensePlate = "О248ВН", Brand = "BMW", ClientId = 2, Client = Clients[1] },
+        new Car { Id = 4, LicensePlate = "О249ВН", Brand = "BMW", ClientId = 2, Client = Clients[1] },
 
         new Car { Id = 5, LicensePlate = "С555СС", Brand = "Harley-Davidson", ClientId = 3, Client = Clients[2] },
 
@@ -133,7 +133,7 @@ public static class CarWashData
 
         new Car { Id = 7, LicensePlate = "К777КК", Brand = "Lada", ClientId = 5, Client = Clients[4] },
 
-        new Car { Id = 8, LicensePlate = "М571AK", Brand = "KamAZ", ClientId = 6, Client = Clients[5] },
+        new Car { Id = 8, LicensePlate = "М571АК", Brand = "KamAZ", ClientId = 6, Client = Clients[5] },
 
         new Car { Id = 9, LicensePlate = "Н101НН", Brand = "Skoda", ClientId = 7, Client = Clients[6] },
 
