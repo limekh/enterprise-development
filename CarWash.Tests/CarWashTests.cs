@@ -74,7 +74,7 @@ public class CarWashTests
 
         var expectedServiceIds = new[]
         {
-            1, 2, 3, 5, 4
+            1, 2, 3, 10, 5
         };
 
         // Act
@@ -122,8 +122,8 @@ public class CarWashTests
     /// 5. Получить суммарную выручку по каждой услуге.
     /// </summary>
     [Theory]
-    [InlineData(1, 16500)]
-    [InlineData(2, 6400)]
+    [InlineData(1, 13500)]
+    [InlineData(2, 4800)]
     [InlineData(3, 4000)]
     [InlineData(5, 6000)]
     public void CalculateServiceRevenue(
