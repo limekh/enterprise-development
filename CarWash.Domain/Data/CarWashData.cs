@@ -306,10 +306,38 @@ public class CarWashData
         {
             Id = id,
             CarId = carId,
-            Car = Cars.Single(car => car.Id == carId),
+            Car = GetCar(carId),
             ServiceId = serviceId,
-            Service = Services.Single(service => service.Id == serviceId),
+            Service = GetService(serviceId),
             StartTime = startTime,
             WashBoxNumber = washBoxNumber
         };
+
+    private Car GetCar(int carId)
+    {
+        try
+        {
+            return Cars.Single(car => car.Id == carId);
+        }
+        catch (InvalidOperationException exception)
+        {
+            throw new InvalidOperationException(
+                $"Не удалось найти единственный автомобиль с ID = {carId}",
+                exception);
+        }
+    }
+
+    private Service GetService(int serviceId)
+    {
+        try
+        {
+            return Services.Single(service => service.Id == serviceId);
+        }
+        catch (InvalidOperationException exception)
+        {
+            throw new InvalidOperationException(
+                $"Не удалось найти единственную услугу с ID = {serviceId}",
+                exception);
+        }
+    }
 }
