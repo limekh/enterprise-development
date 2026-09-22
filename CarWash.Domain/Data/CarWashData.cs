@@ -26,6 +26,7 @@ public static class CarWashData
             Patronymic = null,
             Phone = "+79010000001"
         },
+
         new Client
         {
             Id = 2,
@@ -34,6 +35,7 @@ public static class CarWashData
             Patronymic = "Алексеевич",
             Phone = "+79020000002"
         },
+
         new Client
         {
             Id = 3,
@@ -42,6 +44,7 @@ public static class CarWashData
             Patronymic = null,
             Phone = "+79030000003"
         },
+
         new Client
         {
             Id = 4,
@@ -50,6 +53,7 @@ public static class CarWashData
             Patronymic = "Евгеньевич",
             Phone = "+79040000004"
         },
+
         new Client
         {
             Id = 5,
@@ -58,6 +62,7 @@ public static class CarWashData
             Patronymic = "Андреевич",
             Phone = "+79040000066",
         },
+
         new Client
         {
             Id = 6,
@@ -66,6 +71,7 @@ public static class CarWashData
             Patronymic = "Иванович",
             Phone = "+79060000006"
         },
+
         new Client
         {
             Id = 7,
@@ -74,6 +80,7 @@ public static class CarWashData
             Patronymic = "Максимович",
             Phone = "+79990000007"
         },
+
         new Client
         {
             Id = 8,
@@ -82,6 +89,7 @@ public static class CarWashData
             Patronymic = null,
             Phone = "+79990000008"
         },
+
         new Client
         {
             Id = 9,
@@ -90,6 +98,7 @@ public static class CarWashData
             Patronymic = "Романович",
             Phone = "+79990000009"
         },
+
         new Client
         {
             Id = 10,
@@ -98,6 +107,7 @@ public static class CarWashData
             Patronymic = "Михайлович",
             Phone = "+79990000010"
         },
+
         new Client
         {
             Id = 11,
@@ -106,6 +116,7 @@ public static class CarWashData
             Patronymic = null,
             Phone = "+79990000011"
         },
+
         new Client
         {
             Id = 12,
@@ -122,9 +133,11 @@ public static class CarWashData
     public static List<Car> Cars { get; } =
     [
         new Car { Id = 1, LicensePlate = "А111АА", Brand = "Chevrolet", ClientId = 1, Client = Clients[0] },
+
         new Car { Id = 2, LicensePlate = "А222АА", Brand = "Cadillac", ClientId = 1, Client = Clients[0] },
 
         new Car { Id = 3, LicensePlate = "О248ВН", Brand = "BMW", ClientId = 2, Client = Clients[1] },
+
         new Car { Id = 4, LicensePlate = "О249ВН", Brand = "BMW", ClientId = 2, Client = Clients[1] },
 
         new Car { Id = 5, LicensePlate = "С555СС", Brand = "Harley-Davidson", ClientId = 3, Client = Clients[2] },
@@ -142,6 +155,7 @@ public static class CarWashData
         new Car { Id = 11, LicensePlate = "Р303РР", Brand = "Nissan", ClientId = 9, Client = Clients[8] },
 
         new Car { Id = 12, LicensePlate = "Т404ТТ", Brand = "Mazda", ClientId = 10, Client = Clients[9] },
+
         new Car { Id = 13, LicensePlate = "Т505ТТ", Brand = "Lexus", ClientId = 10, Client = Clients[9] },
 
         new Car { Id = 14, LicensePlate = "У606УУ", Brand = "GMC", ClientId = 11, Client = Clients[10] },
@@ -162,6 +176,7 @@ public static class CarWashData
             Price = 1500m,
             DurationMinutes = 60
         },
+
         new Service
         {
             Id = 2,
@@ -170,6 +185,7 @@ public static class CarWashData
             Price = 800m,
             DurationMinutes = 30
         },
+
         new Service
         {
             Id = 3,
@@ -178,6 +194,7 @@ public static class CarWashData
             Price = 1000m,
             DurationMinutes = 45
         },
+
         new Service
         {
             Id = 4,
@@ -186,6 +203,7 @@ public static class CarWashData
             Price = 1200m,
             DurationMinutes = 40
         },
+
         new Service
         {
             Id = 5,
@@ -194,6 +212,7 @@ public static class CarWashData
             Price = 3000m,
             DurationMinutes = 120
         },
+
         new Service
         {
             Id = 6,
@@ -202,6 +221,7 @@ public static class CarWashData
             Price = 2000m,
             DurationMinutes = 75
         },
+
         new Service
         {
             Id = 7,
@@ -210,6 +230,7 @@ public static class CarWashData
             Price = 2500m,
             DurationMinutes = 90
         },
+
         new Service
         {
             Id = 8,
@@ -218,6 +239,7 @@ public static class CarWashData
             Price = 4000m,
             DurationMinutes = 120
         },
+
         new Service
         {
             Id = 9,
@@ -226,6 +248,7 @@ public static class CarWashData
             Price = 5000m,
             DurationMinutes = 150
         },
+
         new Service
         {
             Id = 10,
@@ -242,41 +265,57 @@ public static class CarWashData
     public static List<Order> Orders { get; } =
     [
         CreateOrder(1, 1, 1, 1, new(2026, 9, 10, 9, 0, 0), 1),
+
         CreateOrder(2, 1, 2, 2, new(2026, 9, 11, 10, 0, 0), 2),
+
         CreateOrder(3, 1, 1, 1, new(2026, 9, 12, 11, 0, 0), 1),
+
         CreateOrder(4, 1, 2, 3, new(2026, 9, 13, 12, 0, 0), 2),
+
         CreateOrder(26, 1, 2, 3, new(2026, 9, 17, 11, 30, 0), 2),
 
         CreateOrder(5, 2, 3, 1, new(2026, 9, 10, 10, 0, 0), 2),
+
         CreateOrder(6, 2, 4, 2, new(2026, 9, 11, 11, 0, 0), 3),
+
         CreateOrder(7, 2, 4, 1, new(2026, 9, 13, 13, 0, 0), 1),
+
         CreateOrder(27, 2, 3, 1, new(2026, 9, 17, 11, 30, 0), 3),
 
-        CreateOrder(8, 3, 5, 1, new(2026, 9, 10, 12, 0, 0), 3),
-        CreateOrder(9, 3, 5, 2, new(2026, 9, 11, 13, 0, 0), 4),
+        CreateOrder(8, 3, 5, 10, new(2026, 9, 10, 12, 0, 0), 3),
 
-        CreateOrder(10, 4, 6, 1, new(2026, 9, 10, 13, 0, 0), 4),
-        CreateOrder(11, 4, 6, 2, new(2026, 9, 11, 14, 0, 0), 1),
+        CreateOrder(9, 3, 5, 10, new(2026, 9, 11, 13, 0, 0), 4),
+
+        CreateOrder(10, 4, 6, 10, new(2026, 9, 10, 13, 0, 0), 4),
+
+        CreateOrder(11, 4, 6, 10, new(2026, 9, 11, 14, 0, 0), 1),
 
         CreateOrder(12, 5, 7, 1, new(2026, 9, 10, 14, 0, 0), 1),
+
         CreateOrder(13, 5, 7, 2, new(2026, 9, 11, 15, 0, 0), 2),
+
         CreateOrder(14, 5, 7, 1, new(2026, 9, 15, 11, 0, 0), 4),
+
         CreateOrder(28, 5, 7, 2, new(2026, 9, 17, 11, 50, 0), 4),
 
-        CreateOrder(15, 6, 8, 6, new(2026, 9, 10, 15, 0, 0), 4),
+        CreateOrder(15, 6, 8, 8, new(2026, 9, 10, 15, 0, 0), 4),
 
         CreateOrder(16, 7, 9, 2, new(2026, 9, 10, 16, 0, 0), 2),
+
         CreateOrder(17, 7, 9, 3, new(2026, 9, 11, 16, 0, 0), 3),
 
-        CreateOrder(18, 8, 10, 3, new(2026, 9, 11, 16, 0, 0), 3),
+        CreateOrder(18, 8, 10, 3, new(2026, 9, 11, 17, 0, 0), 3),
 
         CreateOrder(19, 9, 11, 4, new(2026, 9, 12, 10, 0, 0), 1),
+
         CreateOrder(20, 9, 11, 5, new(2026, 9, 15, 10, 0, 0), 2),
 
         CreateOrder(21, 10, 12, 5, new(2026, 9, 12, 11, 0, 0), 2),
+
         CreateOrder(22, 10, 13, 1, new(2026, 9, 15, 10, 0, 0), 3),
 
         CreateOrder(23, 11, 14, 8, new(2026, 9, 13, 11, 0, 0), 4),
+
         CreateOrder(24, 11, 14, 1, new(2026, 9, 16, 14, 0, 0), 2),
 
         CreateOrder(25, 12, 15, 2, new(2026, 9, 15, 12, 0, 0), 3),
