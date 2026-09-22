@@ -1,3 +1,5 @@
+using CarWash.Domain.Shared.Enums;
+
 namespace CarWash.Domain.Entities;
 
 /// <summary>
@@ -9,6 +11,11 @@ public class Car
     /// Уникальный идентификатор автомобиля
     /// </summary>
     public int Id { get; set; }
+
+    /// <summary>
+    /// Категория автомобиля
+    /// </summary>
+    public CarCategory CarCategory { get; set; }
 
     /// <summary>
     /// Государственный регистрационный номер автомобиля

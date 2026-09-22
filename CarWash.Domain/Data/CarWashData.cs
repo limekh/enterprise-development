@@ -148,35 +148,35 @@ public class CarWashData
 
         Cars.AddRange(
             [
-                new Car { Id = 1, LicensePlate = "А111АА", Brand = "Chevrolet", ClientId = 1, Client = Clients.Single(client => client.Id == 1) },
+                new Car { Id = 1, CarCategory = CarCategory.Passenger, LicensePlate = "А111АА", Brand = "Chevrolet", ClientId = 1, Client = Clients.Single(client => client.Id == 1) },
 
-                new Car { Id = 2, LicensePlate = "А222АА", Brand = "Cadillac", ClientId = 1, Client = Clients.Single(client => client.Id == 1) },
+                new Car { Id = 2, CarCategory = CarCategory.Passenger, LicensePlate = "А222АА", Brand = "Cadillac", ClientId = 1, Client = Clients.Single(client => client.Id == 1) },
 
-                new Car { Id = 3, LicensePlate = "О248ВН", Brand = "BMW", ClientId = 2, Client = Clients.Single(client => client.Id == 2) },
+                new Car { Id = 3, CarCategory = CarCategory.Passenger, LicensePlate = "О248ВН", Brand = "BMW", ClientId = 2, Client = Clients.Single(client => client.Id == 2) },
 
-                new Car { Id = 4, LicensePlate = "О249ВН", Brand = "BMW", ClientId = 2, Client = Clients.Single(client => client.Id == 2) },
+                new Car { Id = 4, CarCategory = CarCategory.Passenger, LicensePlate = "О249ВН", Brand = "BMW", ClientId = 2, Client = Clients.Single(client => client.Id == 2) },
 
-                new Car { Id = 5, LicensePlate = "С555СС", Brand = "Harley-Davidson", ClientId = 3, Client = Clients.Single(client => client.Id == 3) },
+                new Car { Id = 5, CarCategory = CarCategory.Motorcycle, LicensePlate = "С555СС", Brand = "Harley-Davidson", ClientId = 3, Client = Clients.Single(client => client.Id == 3) },
 
-                new Car { Id = 6, LicensePlate = "Е666ЕЕ", Brand = "Honda", ClientId = 4, Client = Clients.Single(client => client.Id == 4) },
+                new Car { Id = 6, CarCategory = CarCategory.Motorcycle, LicensePlate = "Е666ЕЕ", Brand = "Honda", ClientId = 4, Client = Clients.Single(client => client.Id == 4) },
 
-                new Car { Id = 7, LicensePlate = "К777КК", Brand = "Lada", ClientId = 5, Client = Clients.Single(client => client.Id == 5) },
+                new Car { Id = 7, CarCategory = CarCategory.Passenger, LicensePlate = "К777КК", Brand = "Lada", ClientId = 5, Client = Clients.Single(client => client.Id == 5) },
 
-                new Car { Id = 8, LicensePlate = "М571АК", Brand = "KamAZ", ClientId = 6, Client = Clients.Single(client => client.Id == 6) },
+                new Car { Id = 8, CarCategory = CarCategory.Truck, LicensePlate = "М571АК", Brand = "KamAZ", ClientId = 6, Client = Clients.Single(client => client.Id == 6) },
 
-                new Car { Id = 9, LicensePlate = "Н101НН", Brand = "Skoda", ClientId = 7, Client = Clients.Single(client => client.Id == 7) },
+                new Car { Id = 9, CarCategory = CarCategory.Passenger, LicensePlate = "Н101НН", Brand = "Skoda", ClientId = 7, Client = Clients.Single(client => client.Id == 7) },
 
-                new Car { Id = 10, LicensePlate = "О202ОО", Brand = "Volvo", ClientId = 8, Client = Clients.Single(client => client.Id == 8) },
+                new Car { Id = 10, CarCategory = CarCategory.Passenger, LicensePlate = "О202ОО", Brand = "Volvo", ClientId = 8, Client = Clients.Single(client => client.Id == 8) },
 
-                new Car { Id = 11, LicensePlate = "Р303РР", Brand = "Nissan", ClientId = 9, Client = Clients.Single(client => client.Id == 9) },
+                new Car { Id = 11, CarCategory = CarCategory.Passenger, LicensePlate = "Р303РР", Brand = "Nissan", ClientId = 9, Client = Clients.Single(client => client.Id == 9) },
 
-                new Car { Id = 12, LicensePlate = "Т404ТТ", Brand = "Mazda", ClientId = 10, Client = Clients.Single(client => client.Id == 10) },
+                new Car { Id = 12, CarCategory = CarCategory.Passenger, LicensePlate = "Т404ТТ", Brand = "Mazda", ClientId = 10, Client = Clients.Single(client => client.Id == 10) },
 
-                new Car { Id = 13, LicensePlate = "Т505ТТ", Brand = "Lexus", ClientId = 10, Client = Clients.Single(client => client.Id == 10) },
+                new Car { Id = 13, CarCategory = CarCategory.Passenger, LicensePlate = "Т505ТТ", Brand = "Lexus", ClientId = 10, Client = Clients.Single(client => client.Id == 10) },
 
-                new Car { Id = 14, LicensePlate = "У606УУ", Brand = "GMC", ClientId = 11, Client = Clients.Single(client => client.Id == 11) },
+                new Car { Id = 14, CarCategory = CarCategory.Truck, LicensePlate = "У606УУ", Brand = "GMC", ClientId = 11, Client = Clients.Single(client => client.Id == 11) },
 
-                new Car { Id = 15, LicensePlate = "Х707ХХ", Brand = "Peugeot", ClientId = 12, Client = Clients.Single(client => client.Id == 12) }
+                new Car { Id = 15, CarCategory = CarCategory.Passenger, LicensePlate = "Х707ХХ", Brand = "Peugeot", ClientId = 12, Client = Clients.Single(client => client.Id == 12) }
             ]);
 
         Services.AddRange(
@@ -187,7 +187,7 @@ public class CarWashData
                     Name = "Комплексная мойка",
                     CarCategory = CarCategory.Passenger,
                     Price = 1500m,
-                    DurationMinutes = 60
+                    Duration = TimeSpan.FromMinutes(60)
                 },
 
                 new Service
@@ -196,7 +196,7 @@ public class CarWashData
                     Name = "Мойка кузова",
                     CarCategory = CarCategory.Passenger,
                     Price = 800m,
-                    DurationMinutes = 30
+                    Duration = TimeSpan.FromMinutes(30)
                 },
 
                 new Service
@@ -205,7 +205,7 @@ public class CarWashData
                     Name = "Мойка салона",
                     CarCategory = CarCategory.Passenger,
                     Price = 1000m,
-                    DurationMinutes = 45
+                    Duration = TimeSpan.FromMinutes(45)
                 },
 
                 new Service
@@ -214,7 +214,7 @@ public class CarWashData
                     Name = "Мойка двигателя",
                     CarCategory = CarCategory.Passenger,
                     Price = 1200m,
-                    DurationMinutes = 40
+                    Duration = TimeSpan.FromMinutes(40)
                 },
 
                 new Service
@@ -223,7 +223,7 @@ public class CarWashData
                     Name = "Полировка кузова",
                     CarCategory = CarCategory.Passenger,
                     Price = 3000m,
-                    DurationMinutes = 120
+                    Duration = TimeSpan.FromMinutes(120)
                 },
 
                 new Service
@@ -232,7 +232,7 @@ public class CarWashData
                     Name = "Мойка внедорожника",
                     CarCategory = CarCategory.SUV,
                     Price = 2000m,
-                    DurationMinutes = 75
+                    Duration = TimeSpan.FromMinutes(75)
                 },
 
                 new Service
@@ -241,7 +241,7 @@ public class CarWashData
                     Name = "Мойка микроавтобуса",
                     CarCategory = CarCategory.Minibus,
                     Price = 2500m,
-                    DurationMinutes = 90
+                    Duration = TimeSpan.FromMinutes(90)
                 },
 
                 new Service
@@ -250,7 +250,7 @@ public class CarWashData
                     Name = "Мойка грузового автомобиля",
                     CarCategory = CarCategory.Truck,
                     Price = 4000m,
-                    DurationMinutes = 120
+                    Duration = TimeSpan.FromMinutes(120)
                 },
 
                 new Service
@@ -259,7 +259,7 @@ public class CarWashData
                     Name = "Мойка автобуса",
                     CarCategory = CarCategory.Bus,
                     Price = 5000m,
-                    DurationMinutes = 150
+                    Duration = TimeSpan.FromMinutes(150)
                 },
 
                 new Service
@@ -268,7 +268,7 @@ public class CarWashData
                     Name = "Мойка мотоцикла",
                     CarCategory = CarCategory.Motorcycle,
                     Price = 700m,
-                    DurationMinutes = 30
+                    Duration = TimeSpan.FromMinutes(30)
                 }
             ]);
 

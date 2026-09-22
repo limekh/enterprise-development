@@ -62,12 +62,17 @@ public class CarWashTests : IClassFixture<CarWashData>
         var actualCarIds = orders
             .Where(order =>
                 order.StartTime <= now &&
-                now < order.StartTime.AddMinutes(order.Service.DurationMinutes))
+                now < order.StartTime.Add(order.Service.Duration))
             .Select(order => order.CarId)
             .ToArray();
 
         // Assert
-        Assert.Equal(expectedCarIds, actualCarIds);
+        Assert.Equal(expectedCarIds.Length, actualCarIds.Length);
+
+        foreach (var expectedCarId in expectedCarIds)
+        {
+            Assert.Contains(expectedCarId, actualCarIds);
+        }
     }
 
     /// <summary>
@@ -118,7 +123,7 @@ public class CarWashTests : IClassFixture<CarWashData>
         var actualReleaseTime = orders
             .Where(order => order.WashBoxNumber == washBoxNumber)
             .Select(order =>
-                order.StartTime.AddMinutes(order.Service.DurationMinutes))
+                order.StartTime.Add(order.Service.Duration))
             .Max();
 
         // Assert

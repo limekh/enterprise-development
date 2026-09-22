@@ -1,6 +1,6 @@
-namespace CarWash.Domain.Entities;
-
 using CarWash.Domain.Shared.Enums;
+
+namespace CarWash.Domain.Entities;
 
 /// <summary>
 /// Услуга автомойки
@@ -28,9 +28,9 @@ public class Service
     public decimal Price { get; set; }
 
     /// <summary>
-    /// Продолжительность услуги в минутах
+    /// Продолжительность услуги
     /// </summary>
-    public int DurationMinutes { get; set; }
+    public TimeSpan Duration { get; set; }
 
     /// <summary>
     /// Заказы, в которых была оказана услуга
