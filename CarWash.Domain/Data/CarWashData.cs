@@ -16,7 +16,7 @@ public class CarWashData
     /// <summary>
     /// Клиенты автомойки
     /// </summary>
-    public List<Client> Clients { get; } = [];
+    public List<CarWashClient> Clients { get; } = [];
 
     /// <summary>
     /// Автомобили клиентов
@@ -26,7 +26,7 @@ public class CarWashData
     /// <summary>
     /// Услуги автомойки
     /// </summary>
-    public List<Service> Services { get; } = [];
+    public List<CarWashService> Services { get; } = [];
 
     /// <summary>
     /// Заказы автомойки
@@ -37,7 +37,7 @@ public class CarWashData
     {
         Clients.AddRange(
             [
-                new Client
+                new CarWashClient
                 {
                     Id = 1,
                     LastName = "Сопранов",
@@ -45,7 +45,7 @@ public class CarWashData
                     Patronymic = null,
                     Phone = "+79010000001"
                 },
-                new Client
+                new CarWashClient
                 {
                     Id = 2,
                     LastName = "Ошпаренный",
@@ -53,7 +53,7 @@ public class CarWashData
                     Patronymic = "Алексеевич",
                     Phone = "+79020000002"
                 },
-                new Client
+                new CarWashClient
                 {
                     Id = 3,
                     LastName = "Папс",
@@ -61,7 +61,7 @@ public class CarWashData
                     Patronymic = null,
                     Phone = "+79030000003"
                 },
-                new Client
+                new CarWashClient
                 {
                     Id = 4,
                     LastName = "Быков",
@@ -69,7 +69,7 @@ public class CarWashData
                     Patronymic = "Евгеньевич",
                     Phone = "+79040000004"
                 },
-                new Client
+                new CarWashClient
                 {
                     Id = 5,
                     LastName = "Бобков",
@@ -77,7 +77,7 @@ public class CarWashData
                     Patronymic = "Андреевич",
                     Phone = "+79040000066",
                 },
-                new Client
+                new CarWashClient
                 {
                     Id = 6,
                     LastName = "Афанасьев",
@@ -85,7 +85,7 @@ public class CarWashData
                     Patronymic = "Иванович",
                     Phone = "+79060000006"
                 },
-                new Client
+                new CarWashClient
                 {
                     Id = 7,
                     LastName = "Васильев",
@@ -93,7 +93,7 @@ public class CarWashData
                     Patronymic = "Максимович",
                     Phone = "+79990000007"
                 },
-                new Client
+                new CarWashClient
                 {
                     Id = 8,
                     LastName = "Новиков",
@@ -101,7 +101,7 @@ public class CarWashData
                     Patronymic = null,
                     Phone = "+79990000008"
                 },
-                new Client
+                new CarWashClient
                 {
                     Id = 9,
                     LastName = "Фёдоров",
@@ -109,7 +109,7 @@ public class CarWashData
                     Patronymic = "Романович",
                     Phone = "+79990000009"
                 },
-                new Client
+                new CarWashClient
                 {
                     Id = 10,
                     LastName = "Морозов",
@@ -117,7 +117,7 @@ public class CarWashData
                     Patronymic = "Михайлович",
                     Phone = "+79990000010"
                 },
-                new Client
+                new CarWashClient
                 {
                     Id = 11,
                     LastName = "Лоренцо",
@@ -125,7 +125,7 @@ public class CarWashData
                     Patronymic = null,
                     Phone = "+79990000011"
                 },
-                new Client
+                new CarWashClient
                 {
                     Id = 12,
                     LastName = "Алексеев",
@@ -156,7 +156,7 @@ public class CarWashData
 
         Services.AddRange(
             [
-                new Service
+                new CarWashService
                 {
                     Id = 1,
                     Name = "Комплексная мойка",
@@ -164,7 +164,7 @@ public class CarWashData
                     Price = 1500m,
                     Duration = TimeSpan.FromMinutes(60)
                 },
-                new Service
+                new CarWashService
                 {
                     Id = 2,
                     Name = "Мойка кузова",
@@ -172,7 +172,7 @@ public class CarWashData
                     Price = 800m,
                     Duration = TimeSpan.FromMinutes(30)
                 },
-                new Service
+                new CarWashService
                 {
                     Id = 3,
                     Name = "Мойка салона",
@@ -180,7 +180,7 @@ public class CarWashData
                     Price = 1000m,
                     Duration = TimeSpan.FromMinutes(45)
                 },
-                new Service
+                new CarWashService
                 {
                     Id = 4,
                     Name = "Мойка двигателя",
@@ -188,7 +188,7 @@ public class CarWashData
                     Price = 1200m,
                     Duration = TimeSpan.FromMinutes(40)
                 },
-                new Service
+                new CarWashService
                 {
                     Id = 5,
                     Name = "Полировка кузова",
@@ -196,7 +196,7 @@ public class CarWashData
                     Price = 3000m,
                     Duration = TimeSpan.FromMinutes(120)
                 },
-                new Service
+                new CarWashService
                 {
                     Id = 6,
                     Name = "Мойка внедорожника",
@@ -204,7 +204,7 @@ public class CarWashData
                     Price = 2000m,
                     Duration = TimeSpan.FromMinutes(75)
                 },
-                new Service
+                new CarWashService
                 {
                     Id = 7,
                     Name = "Мойка микроавтобуса",
@@ -212,7 +212,7 @@ public class CarWashData
                     Price = 2500m,
                     Duration = TimeSpan.FromMinutes(90)
                 },
-                new Service
+                new CarWashService
                 {
                     Id = 8,
                     Name = "Мойка грузового автомобиля",
@@ -220,7 +220,7 @@ public class CarWashData
                     Price = 4000m,
                     Duration = TimeSpan.FromMinutes(120)
                 },
-                new Service
+                new CarWashService
                 {
                     Id = 9,
                     Name = "Мойка автобуса",
@@ -228,7 +228,7 @@ public class CarWashData
                     Price = 5000m,
                     Duration = TimeSpan.FromMinutes(150)
                 },
-                new Service
+                new CarWashService
                 {
                     Id = 10,
                     Name = "Мойка мотоцикла",
@@ -327,7 +327,7 @@ public class CarWashData
         }
     }
 
-    private Service GetService(int serviceId)
+    private CarWashService GetService(int serviceId)
     {
         try
         {

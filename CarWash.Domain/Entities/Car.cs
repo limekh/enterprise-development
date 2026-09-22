@@ -35,7 +35,7 @@ public class Car
     /// <summary>
     /// Владелец автомобиля
     /// </summary>
-    public required Client Client { get; set; }
+    public required CarWashClient Client { get; set; }
 
     /// <summary>
     /// Заказы на обслуживание автомобиля

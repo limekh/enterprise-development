@@ -28,7 +28,7 @@ public class Order
     /// <summary>
     /// Услуга, выполняемая по заказу
     /// </summary>
-    public required Service Service { get; set; }
+    public required CarWashService Service { get; set; }
 
     /// <summary>
     /// Дата и время начала обслуживания
