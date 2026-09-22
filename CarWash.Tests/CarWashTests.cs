@@ -2,8 +2,15 @@ using CarWash.Domain.Data;
 
 namespace CarWash.Tests;
 
-public class CarWashTests
+public class CarWashTests : IClassFixture<CarWashData>
 {
+    private readonly CarWashData _data;
+
+    public CarWashTests(CarWashData data)
+    {
+        _data = data;
+    }
+
     /// <summary>
     /// 1. Получить топ 5 клиентов по количеству посещений автомойки
     /// </summary>
@@ -11,7 +18,7 @@ public class CarWashTests
     public void GetTopFiveClientsByVisitCount()
     {
         // Arrange
-        var orders = CarWashData.Orders;
+        var orders = _data.Orders;
 
         var expectedClientIds = new[]
         {
@@ -43,8 +50,8 @@ public class CarWashTests
     public void GetCarsCurrentlyAtCarWash()
     {
         // Arrange
-        var orders = CarWashData.Orders;
-        var now = CarWashData.Now;
+        var orders = _data.Orders;
+        var now = _data.Now;
 
         var expectedCarIds = new[]
         {
@@ -70,7 +77,7 @@ public class CarWashTests
     public void GetTopPopularServices()
     {
         // Arrange
-        var orders = CarWashData.Orders;
+        var orders = _data.Orders;
 
         var expectedServiceIds = new[]
         {
@@ -102,7 +109,7 @@ public class CarWashTests
     public void GetWashBoxReleaseTime()
     {
         // Arrange
-        var orders = CarWashData.Orders;
+        var orders = _data.Orders;
         var washBoxNumber = 4;
 
         var expectedReleaseTime = new DateTime(2026, 9, 17, 12, 20, 0);
@@ -131,7 +138,7 @@ public class CarWashTests
         decimal expectedRevenue)
     {
         // Arrange
-        var orders = CarWashData.Orders;
+        var orders = _data.Orders;
 
         // Act
         var actualRevenue = orders
