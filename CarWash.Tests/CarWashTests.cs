@@ -2,14 +2,9 @@ using CarWash.Domain.Data;
 
 namespace CarWash.Tests;
 
-public class CarWashTests : IClassFixture<CarWashData>
+public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
 {
-    private readonly CarWashData _data;
-
-    public CarWashTests(CarWashData data)
-    {
-        _data = data;
-    }
+    private readonly CarWashData _data = data;
 
     /// <summary>
     /// 1. Получить топ 5 клиентов по количеству посещений автомойки
@@ -27,7 +22,7 @@ public class CarWashTests : IClassFixture<CarWashData>
 
         // Act
         var actualClientIds = orders
-            .GroupBy(order => order.ClientId)
+            .GroupBy(order => order.Car.ClientId)
             .Select(group => new
             {
                 ClientId = group.Key,
@@ -86,7 +81,7 @@ public class CarWashTests : IClassFixture<CarWashData>
 
         var expectedServiceIds = new[]
         {
-            1, 2, 3, 10, 5
+            1, 2, 3, 10, 8
         };
 
         // Act
@@ -134,7 +129,7 @@ public class CarWashTests : IClassFixture<CarWashData>
     /// 5. Получить суммарную выручку по каждой услуге.
     /// </summary>
     [Theory]
-    [InlineData(1, 13500)]
+    [InlineData(1, 12000)]
     [InlineData(2, 4800)]
     [InlineData(3, 4000)]
     [InlineData(5, 6000)]

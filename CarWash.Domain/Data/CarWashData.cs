@@ -45,7 +45,6 @@ public class CarWashData
                     Patronymic = null,
                     Phone = "+79010000001"
                 },
-
                 new Client
                 {
                     Id = 2,
@@ -54,7 +53,6 @@ public class CarWashData
                     Patronymic = "Алексеевич",
                     Phone = "+79020000002"
                 },
-
                 new Client
                 {
                     Id = 3,
@@ -63,7 +61,6 @@ public class CarWashData
                     Patronymic = null,
                     Phone = "+79030000003"
                 },
-
                 new Client
                 {
                     Id = 4,
@@ -72,7 +69,6 @@ public class CarWashData
                     Patronymic = "Евгеньевич",
                     Phone = "+79040000004"
                 },
-
                 new Client
                 {
                     Id = 5,
@@ -81,7 +77,6 @@ public class CarWashData
                     Patronymic = "Андреевич",
                     Phone = "+79040000066",
                 },
-
                 new Client
                 {
                     Id = 6,
@@ -90,7 +85,6 @@ public class CarWashData
                     Patronymic = "Иванович",
                     Phone = "+79060000006"
                 },
-
                 new Client
                 {
                     Id = 7,
@@ -99,7 +93,6 @@ public class CarWashData
                     Patronymic = "Максимович",
                     Phone = "+79990000007"
                 },
-
                 new Client
                 {
                     Id = 8,
@@ -108,7 +101,6 @@ public class CarWashData
                     Patronymic = null,
                     Phone = "+79990000008"
                 },
-
                 new Client
                 {
                     Id = 9,
@@ -117,7 +109,6 @@ public class CarWashData
                     Patronymic = "Романович",
                     Phone = "+79990000009"
                 },
-
                 new Client
                 {
                     Id = 10,
@@ -126,7 +117,6 @@ public class CarWashData
                     Patronymic = "Михайлович",
                     Phone = "+79990000010"
                 },
-
                 new Client
                 {
                     Id = 11,
@@ -135,7 +125,6 @@ public class CarWashData
                     Patronymic = null,
                     Phone = "+79990000011"
                 },
-
                 new Client
                 {
                     Id = 12,
@@ -149,33 +138,19 @@ public class CarWashData
         Cars.AddRange(
             [
                 new Car { Id = 1, CarCategory = CarCategory.Passenger, LicensePlate = "А111АА", Brand = "Chevrolet", ClientId = 1, Client = Clients.Single(client => client.Id == 1) },
-
                 new Car { Id = 2, CarCategory = CarCategory.Passenger, LicensePlate = "А222АА", Brand = "Cadillac", ClientId = 1, Client = Clients.Single(client => client.Id == 1) },
-
                 new Car { Id = 3, CarCategory = CarCategory.Passenger, LicensePlate = "О248ВН", Brand = "BMW", ClientId = 2, Client = Clients.Single(client => client.Id == 2) },
-
                 new Car { Id = 4, CarCategory = CarCategory.Passenger, LicensePlate = "О249ВН", Brand = "BMW", ClientId = 2, Client = Clients.Single(client => client.Id == 2) },
-
                 new Car { Id = 5, CarCategory = CarCategory.Motorcycle, LicensePlate = "С555СС", Brand = "Harley-Davidson", ClientId = 3, Client = Clients.Single(client => client.Id == 3) },
-
                 new Car { Id = 6, CarCategory = CarCategory.Motorcycle, LicensePlate = "Е666ЕЕ", Brand = "Honda", ClientId = 4, Client = Clients.Single(client => client.Id == 4) },
-
                 new Car { Id = 7, CarCategory = CarCategory.Passenger, LicensePlate = "К777КК", Brand = "Lada", ClientId = 5, Client = Clients.Single(client => client.Id == 5) },
-
                 new Car { Id = 8, CarCategory = CarCategory.Truck, LicensePlate = "М571АК", Brand = "KamAZ", ClientId = 6, Client = Clients.Single(client => client.Id == 6) },
-
                 new Car { Id = 9, CarCategory = CarCategory.Passenger, LicensePlate = "Н101НН", Brand = "Skoda", ClientId = 7, Client = Clients.Single(client => client.Id == 7) },
-
-                new Car { Id = 10, CarCategory = CarCategory.Passenger, LicensePlate = "О202ОО", Brand = "Volvo", ClientId = 8, Client = Clients.Single(client => client.Id == 8) },
-
+                new Car { Id = 10, CarCategory = CarCategory.Passenger, LicensePlate = "О202ОО", Brand = "Volvo", ClientId = 8, Client = Clients.Single(client => client.Id == 8) }, 
                 new Car { Id = 11, CarCategory = CarCategory.Passenger, LicensePlate = "Р303РР", Brand = "Nissan", ClientId = 9, Client = Clients.Single(client => client.Id == 9) },
-
                 new Car { Id = 12, CarCategory = CarCategory.Passenger, LicensePlate = "Т404ТТ", Brand = "Mazda", ClientId = 10, Client = Clients.Single(client => client.Id == 10) },
-
                 new Car { Id = 13, CarCategory = CarCategory.Passenger, LicensePlate = "Т505ТТ", Brand = "Lexus", ClientId = 10, Client = Clients.Single(client => client.Id == 10) },
-
                 new Car { Id = 14, CarCategory = CarCategory.Truck, LicensePlate = "У606УУ", Brand = "GMC", ClientId = 11, Client = Clients.Single(client => client.Id == 11) },
-
                 new Car { Id = 15, CarCategory = CarCategory.Passenger, LicensePlate = "Х707ХХ", Brand = "Peugeot", ClientId = 12, Client = Clients.Single(client => client.Id == 12) }
             ]);
 
@@ -189,7 +164,6 @@ public class CarWashData
                     Price = 1500m,
                     Duration = TimeSpan.FromMinutes(60)
                 },
-
                 new Service
                 {
                     Id = 2,
@@ -198,7 +172,6 @@ public class CarWashData
                     Price = 800m,
                     Duration = TimeSpan.FromMinutes(30)
                 },
-
                 new Service
                 {
                     Id = 3,
@@ -207,7 +180,6 @@ public class CarWashData
                     Price = 1000m,
                     Duration = TimeSpan.FromMinutes(45)
                 },
-
                 new Service
                 {
                     Id = 4,
@@ -216,7 +188,6 @@ public class CarWashData
                     Price = 1200m,
                     Duration = TimeSpan.FromMinutes(40)
                 },
-
                 new Service
                 {
                     Id = 5,
@@ -225,7 +196,6 @@ public class CarWashData
                     Price = 3000m,
                     Duration = TimeSpan.FromMinutes(120)
                 },
-
                 new Service
                 {
                     Id = 6,
@@ -234,7 +204,6 @@ public class CarWashData
                     Price = 2000m,
                     Duration = TimeSpan.FromMinutes(75)
                 },
-
                 new Service
                 {
                     Id = 7,
@@ -243,7 +212,6 @@ public class CarWashData
                     Price = 2500m,
                     Duration = TimeSpan.FromMinutes(90)
                 },
-
                 new Service
                 {
                     Id = 8,
@@ -252,7 +220,6 @@ public class CarWashData
                     Price = 4000m,
                     Duration = TimeSpan.FromMinutes(120)
                 },
-
                 new Service
                 {
                     Id = 9,
@@ -261,7 +228,6 @@ public class CarWashData
                     Price = 5000m,
                     Duration = TimeSpan.FromMinutes(150)
                 },
-
                 new Service
                 {
                     Id = 10,
@@ -274,61 +240,34 @@ public class CarWashData
 
         Orders.AddRange(
             [
-                CreateOrder(1, 1, 1, 1, new(2026, 9, 10, 9, 0, 0), 1),
-
-                CreateOrder(2, 1, 2, 2, new(2026, 9, 11, 10, 0, 0), 2),
-
-                CreateOrder(3, 1, 1, 1, new(2026, 9, 12, 11, 0, 0), 1),
-
-                CreateOrder(4, 1, 2, 3, new(2026, 9, 13, 12, 0, 0), 2),
-
-                CreateOrder(26, 1, 2, 3, new(2026, 9, 17, 11, 30, 0), 2),
-
-                CreateOrder(5, 2, 3, 1, new(2026, 9, 10, 10, 0, 0), 2),
-
-                CreateOrder(6, 2, 4, 2, new(2026, 9, 11, 11, 0, 0), 3),
-
-                CreateOrder(7, 2, 4, 1, new(2026, 9, 13, 13, 0, 0), 1),
-
-                CreateOrder(27, 2, 3, 1, new(2026, 9, 17, 11, 30, 0), 3),
-
-                CreateOrder(8, 3, 5, 10, new(2026, 9, 10, 12, 0, 0), 3),
-
-                CreateOrder(9, 3, 5, 10, new(2026, 9, 11, 13, 0, 0), 4),
-
-                CreateOrder(10, 4, 6, 10, new(2026, 9, 10, 13, 0, 0), 4),
-
-                CreateOrder(11, 4, 6, 10, new(2026, 9, 11, 14, 0, 0), 1),
-
-                CreateOrder(12, 5, 7, 1, new(2026, 9, 10, 14, 0, 0), 1),
-
-                CreateOrder(13, 5, 7, 2, new(2026, 9, 11, 15, 0, 0), 2),
-
-                CreateOrder(14, 5, 7, 1, new(2026, 9, 15, 11, 0, 0), 4),
-
-                CreateOrder(28, 5, 7, 2, new(2026, 9, 17, 11, 50, 0), 4),
-
-                CreateOrder(15, 6, 8, 8, new(2026, 9, 10, 15, 0, 0), 4),
-
-                CreateOrder(16, 7, 9, 2, new(2026, 9, 10, 16, 0, 0), 2),
-
-                CreateOrder(17, 7, 9, 3, new(2026, 9, 11, 16, 0, 0), 3),
-
-                CreateOrder(18, 8, 10, 3, new(2026, 9, 11, 17, 0, 0), 3),
-
-                CreateOrder(19, 9, 11, 4, new(2026, 9, 12, 10, 0, 0), 1),
-
-                CreateOrder(20, 9, 11, 5, new(2026, 9, 15, 10, 0, 0), 2),
-
-                CreateOrder(21, 10, 12, 5, new(2026, 9, 12, 11, 0, 0), 2),
-
-                CreateOrder(22, 10, 13, 1, new(2026, 9, 15, 10, 0, 0), 3),
-
-                CreateOrder(23, 11, 14, 8, new(2026, 9, 13, 11, 0, 0), 4),
-
-                CreateOrder(24, 11, 14, 1, new(2026, 9, 16, 14, 0, 0), 2),
-
-                CreateOrder(25, 12, 15, 2, new(2026, 9, 15, 12, 0, 0), 3),
+                CreateOrder(1, 1, 1, new(2026, 9, 10, 9, 0, 0), 1),
+                CreateOrder(2, 2, 2, new(2026, 9, 11, 10, 0, 0), 2),
+                CreateOrder(3, 1, 1, new(2026, 9, 12, 11, 0, 0), 1),
+                CreateOrder(4, 2, 3, new(2026, 9, 13, 12, 0, 0), 2),
+                CreateOrder(26, 2, 3, new(2026, 9, 17, 11, 30, 0), 2),
+                CreateOrder(5, 3, 1, new(2026, 9, 10, 10, 0, 0), 2),
+                CreateOrder(6, 4, 2, new(2026, 9, 11, 11, 0, 0), 3),
+                CreateOrder(7, 4, 1, new(2026, 9, 13, 13, 0, 0), 1),
+                CreateOrder(27, 3, 1, new(2026, 9, 17, 11, 30, 0), 3),
+                CreateOrder(8, 5, 10, new(2026, 9, 10, 12, 0, 0), 3),
+                CreateOrder(9, 5, 10, new(2026, 9, 11, 13, 0, 0), 4),
+                CreateOrder(10, 6, 10, new(2026, 9, 10, 13, 0, 0), 4),
+                CreateOrder(11, 6, 10, new(2026, 9, 11, 14, 0, 0), 1),
+                CreateOrder(12, 7, 1, new(2026, 9, 10, 14, 0, 0), 1),
+                CreateOrder(13, 7, 2, new(2026, 9, 11, 15, 0, 0), 2),
+                CreateOrder(14, 7, 1, new(2026, 9, 15, 11, 0, 0), 4),
+                CreateOrder(28, 7, 2, new(2026, 9, 17, 11, 50, 0), 4),
+                CreateOrder(15, 8, 8, new(2026, 9, 10, 15, 0, 0), 4),
+                CreateOrder(16, 9, 2, new(2026, 9, 10, 16, 0, 0), 2),
+                CreateOrder(17, 9, 3, new(2026, 9, 11, 16, 0, 0), 3),
+                CreateOrder(18, 10, 3, new(2026, 9, 11, 17, 0, 0), 3),
+                CreateOrder(19, 11, 4, new(2026, 9, 12, 10, 0, 0), 1),
+                CreateOrder(20, 11, 5, new(2026, 9, 15, 10, 0, 0), 2),
+                CreateOrder(21, 12, 5, new(2026, 9, 12, 11, 0, 0), 2),
+                CreateOrder(22, 13, 1, new(2026, 9, 15, 10, 0, 0), 3),
+                CreateOrder(23, 14, 8, new(2026, 9, 13, 11, 0, 0), 4),
+                CreateOrder(24, 14, 8, new(2026, 9, 16, 14, 0, 0), 2),
+                CreateOrder(25, 15, 2, new(2026, 9, 15, 12, 0, 0), 3),
             ]);
 
         foreach (var client in Clients)
@@ -338,7 +277,7 @@ public class CarWashData
                 .ToList();
 
             client.Orders = Orders
-                .Where(order => order.ClientId == client.Id)
+                .Where(order => order.Car.ClientId == client.Id)
                 .ToList();
         }
 
@@ -359,7 +298,6 @@ public class CarWashData
 
     private Order CreateOrder(
         int id,
-        int clientId,
         int carId,
         int serviceId,
         DateTime startTime,
@@ -367,8 +305,6 @@ public class CarWashData
         new()
         {
             Id = id,
-            ClientId = clientId,
-            Client = Clients.Single(client => client.Id == clientId),
             CarId = carId,
             Car = Cars.Single(car => car.Id == carId),
             ServiceId = serviceId,

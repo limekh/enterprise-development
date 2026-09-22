@@ -11,16 +11,6 @@ public class Order
     public int Id { get; set; }
 
     /// <summary>
-    /// Идентификатор клиента
-    /// </summary>
-    public int ClientId { get; set; }
-
-    /// <summary>
-    /// Клиент, оформивший заказ
-    /// </summary>
-    public required Client Client { get; set; }
-
-    /// <summary>
     /// Идентификатор автомобиля
     /// </summary>
     public int CarId { get; set; }
