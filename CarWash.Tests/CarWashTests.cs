@@ -2,40 +2,41 @@ using CarWash.Domain.Data;
 
 namespace CarWash.Tests;
 
+/// <summary>
+/// Юнит тесты для автомойки
+/// </summary>
 public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
 {
-    private readonly CarWashData _data = data;
-
     /// <summary>
     /// 1. Получить топ 5 клиентов по количеству посещений автомойки
     /// </summary>
     [Fact]
-    public void GetTopFiveClientsByVisitCount()
+    public void GetTopFiveCustomersByVisitCount()
     {
         // Arrange
-        var orders = _data.Orders;
+        var orders = data.Orders;
 
-        var expectedClientIds = new[]
+        var expectedCustomerIds = new[]
         {
-            1, 2, 5, 3, 4  
+            2, 1, 5, 4, 7  
         };
 
         // Act
-        var actualClientIds = orders
-            .GroupBy(order => order.Car.ClientId)
+        var actualCustomerIds = orders
+            .GroupBy(order => order.Car.CustomerId)
             .Select(group => new
             {
-                ClientId = group.Key,
+                CustomerId = group.Key,
                 VisitCount = group.Count()
             })
             .OrderByDescending(x => x.VisitCount)
-            .ThenBy(x => x.ClientId)
+            .ThenBy(x => x.CustomerId)
             .Take(5)
-            .Select(x => x.ClientId)
+            .Select(x => x.CustomerId)
             .ToArray();
 
         // Assert
-        Assert.Equal(expectedClientIds, actualClientIds);
+        Assert.Equal(expectedCustomerIds, actualCustomerIds);
     }
 
     /// <summary>
@@ -45,8 +46,8 @@ public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
     public void GetCarsCurrentlyAtCarWash()
     {
         // Arrange
-        var orders = _data.Orders;
-        var now = _data.Now;
+        var orders = data.Orders;
+        var now = data.Now;
 
         var expectedCarIds = new[]
         {
@@ -57,7 +58,7 @@ public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
         var actualCarIds = orders
             .Where(order =>
                 order.StartTime <= now &&
-                now < order.StartTime.Add(order.Service.Duration))
+                now < order.StartTime.Add(order.Procedure.Duration))
             .Select(order => order.CarId)
             .ToArray();
 
@@ -74,32 +75,32 @@ public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
     /// 3. Получить топ 5 наиболее популярных услуг автомойки
     /// </summary>
     [Fact]
-    public void GetTopPopularServices()
+    public void GetTopPopularProcedures()
     {
         // Arrange
-        var orders = _data.Orders;
+        var orders = data.Orders;
 
-        var expectedServiceIds = new[]
+        var expectedProcedureIds = new[]
         {
             1, 2, 3, 10, 8
         };
 
         // Act
-        var actualServiceIds = orders
-            .GroupBy(order => order.ServiceId)
+        var actualProcedureIds = orders
+            .GroupBy(order => order.ProcedureId)
             .Select(group => new
             {
-                ServiceId = group.Key,
+                ProcedureId = group.Key,
                 OrderCount = group.Count()
             })
             .OrderByDescending(x => x.OrderCount)
-            .ThenBy(x => x.ServiceId)
+            .ThenBy(x => x.ProcedureId)
             .Take(5)
-            .Select(x => x.ServiceId)
+            .Select(x => x.ProcedureId)
             .ToArray();
 
         // Assert
-        Assert.Equal(expectedServiceIds, actualServiceIds);
+        Assert.Equal(expectedProcedureIds, actualProcedureIds);
     }
 
     /// <summary>
@@ -109,7 +110,7 @@ public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
     public void GetWashBoxReleaseTime()
     {
         // Arrange
-        var orders = _data.Orders;
+        var orders = data.Orders;
         var washBoxNumber = 4;
 
         var expectedReleaseTime = new DateTime(2026, 9, 17, 12, 20, 0);
@@ -118,7 +119,7 @@ public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
         var actualReleaseTime = orders
             .Where(order => order.WashBoxNumber == washBoxNumber)
             .Select(order =>
-                order.StartTime.Add(order.Service.Duration))
+                order.StartTime.Add(order.Procedure.Duration))
             .Max();
 
         // Assert
@@ -133,17 +134,17 @@ public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
     [InlineData(2, 4800)]
     [InlineData(3, 4000)]
     [InlineData(5, 6000)]
-    public void CalculateServiceRevenue(
-        int serviceId,
+    public void CalculateProcedureRevenue(
+        int ProcedureId,
         decimal expectedRevenue)
     {
         // Arrange
-        var orders = _data.Orders;
+        var orders = data.Orders;
 
         // Act
         var actualRevenue = orders
-            .Where(order => order.ServiceId == serviceId)
-            .Sum(order => order.Service.Price);
+            .Where(order => order.ProcedureId == ProcedureId)
+            .Sum(order => order.Procedure.Price);
 
         // Assert
         Assert.Equal(expectedRevenue, actualRevenue);

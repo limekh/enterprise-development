@@ -3,7 +3,7 @@ namespace CarWash.Domain.Entities;
 /// <summary>
 /// Клиент автомойки
 /// </summary>
-public class CarWashClient
+public class CarWashCustomer
 {
     /// <summary>
     /// Уникальный идентификатор клиента

@@ -16,7 +16,7 @@ public class CarWashData
     /// <summary>
     /// Клиенты автомойки
     /// </summary>
-    public List<CarWashClient> Clients { get; } = [];
+    public List<CarWashCustomer> Customers { get; } = [];
 
     /// <summary>
     /// Автомобили клиентов
@@ -26,7 +26,7 @@ public class CarWashData
     /// <summary>
     /// Услуги автомойки
     /// </summary>
-    public List<CarWashService> Services { get; } = [];
+    public List<CarWashProcedure> Procedures { get; } = [];
 
     /// <summary>
     /// Заказы автомойки
@@ -35,9 +35,9 @@ public class CarWashData
 
     public CarWashData()
     {
-        Clients.AddRange(
+        Customers.AddRange(
             [
-                new CarWashClient
+                new CarWashCustomer
                 {
                     Id = 1,
                     LastName = "Сопранов",
@@ -45,7 +45,7 @@ public class CarWashData
                     Patronymic = null,
                     Phone = "+79010000001"
                 },
-                new CarWashClient
+                new CarWashCustomer
                 {
                     Id = 2,
                     LastName = "Ошпаренный",
@@ -53,7 +53,7 @@ public class CarWashData
                     Patronymic = "Алексеевич",
                     Phone = "+79020000002"
                 },
-                new CarWashClient
+                new CarWashCustomer
                 {
                     Id = 3,
                     LastName = "Папс",
@@ -61,7 +61,7 @@ public class CarWashData
                     Patronymic = null,
                     Phone = "+79030000003"
                 },
-                new CarWashClient
+                new CarWashCustomer
                 {
                     Id = 4,
                     LastName = "Быков",
@@ -69,7 +69,7 @@ public class CarWashData
                     Patronymic = "Евгеньевич",
                     Phone = "+79040000004"
                 },
-                new CarWashClient
+                new CarWashCustomer
                 {
                     Id = 5,
                     LastName = "Бобков",
@@ -77,7 +77,7 @@ public class CarWashData
                     Patronymic = "Андреевич",
                     Phone = "+79040000066",
                 },
-                new CarWashClient
+                new CarWashCustomer
                 {
                     Id = 6,
                     LastName = "Афанасьев",
@@ -85,7 +85,7 @@ public class CarWashData
                     Patronymic = "Иванович",
                     Phone = "+79060000006"
                 },
-                new CarWashClient
+                new CarWashCustomer
                 {
                     Id = 7,
                     LastName = "Васильев",
@@ -93,7 +93,7 @@ public class CarWashData
                     Patronymic = "Максимович",
                     Phone = "+79990000007"
                 },
-                new CarWashClient
+                new CarWashCustomer
                 {
                     Id = 8,
                     LastName = "Новиков",
@@ -101,7 +101,7 @@ public class CarWashData
                     Patronymic = null,
                     Phone = "+79990000008"
                 },
-                new CarWashClient
+                new CarWashCustomer
                 {
                     Id = 9,
                     LastName = "Фёдоров",
@@ -109,7 +109,7 @@ public class CarWashData
                     Patronymic = "Романович",
                     Phone = "+79990000009"
                 },
-                new CarWashClient
+                new CarWashCustomer
                 {
                     Id = 10,
                     LastName = "Морозов",
@@ -117,7 +117,7 @@ public class CarWashData
                     Patronymic = "Михайлович",
                     Phone = "+79990000010"
                 },
-                new CarWashClient
+                new CarWashCustomer
                 {
                     Id = 11,
                     LastName = "Лоренцо",
@@ -125,7 +125,7 @@ public class CarWashData
                     Patronymic = null,
                     Phone = "+79990000011"
                 },
-                new CarWashClient
+                new CarWashCustomer
                 {
                     Id = 12,
                     LastName = "Алексеев",
@@ -137,26 +137,26 @@ public class CarWashData
 
         Cars.AddRange(
             [
-                new Car { Id = 1, CarCategory = CarCategory.Passenger, LicensePlate = "А111АА", Brand = "Chevrolet", ClientId = 1, Client = Clients.Single(client => client.Id == 1) },
-                new Car { Id = 2, CarCategory = CarCategory.Passenger, LicensePlate = "А222АА", Brand = "Cadillac", ClientId = 1, Client = Clients.Single(client => client.Id == 1) },
-                new Car { Id = 3, CarCategory = CarCategory.Passenger, LicensePlate = "О248ВН", Brand = "BMW", ClientId = 2, Client = Clients.Single(client => client.Id == 2) },
-                new Car { Id = 4, CarCategory = CarCategory.Passenger, LicensePlate = "О249ВН", Brand = "BMW", ClientId = 2, Client = Clients.Single(client => client.Id == 2) },
-                new Car { Id = 5, CarCategory = CarCategory.Motorcycle, LicensePlate = "С555СС", Brand = "Harley-Davidson", ClientId = 3, Client = Clients.Single(client => client.Id == 3) },
-                new Car { Id = 6, CarCategory = CarCategory.Motorcycle, LicensePlate = "Е666ЕЕ", Brand = "Honda", ClientId = 4, Client = Clients.Single(client => client.Id == 4) },
-                new Car { Id = 7, CarCategory = CarCategory.Passenger, LicensePlate = "К777КК", Brand = "Lada", ClientId = 5, Client = Clients.Single(client => client.Id == 5) },
-                new Car { Id = 8, CarCategory = CarCategory.Truck, LicensePlate = "М571АК", Brand = "KamAZ", ClientId = 6, Client = Clients.Single(client => client.Id == 6) },
-                new Car { Id = 9, CarCategory = CarCategory.Passenger, LicensePlate = "Н101НН", Brand = "Skoda", ClientId = 7, Client = Clients.Single(client => client.Id == 7) },
-                new Car { Id = 10, CarCategory = CarCategory.Passenger, LicensePlate = "О202ОО", Brand = "Volvo", ClientId = 8, Client = Clients.Single(client => client.Id == 8) }, 
-                new Car { Id = 11, CarCategory = CarCategory.Passenger, LicensePlate = "Р303РР", Brand = "Nissan", ClientId = 9, Client = Clients.Single(client => client.Id == 9) },
-                new Car { Id = 12, CarCategory = CarCategory.Passenger, LicensePlate = "Т404ТТ", Brand = "Mazda", ClientId = 10, Client = Clients.Single(client => client.Id == 10) },
-                new Car { Id = 13, CarCategory = CarCategory.Passenger, LicensePlate = "Т505ТТ", Brand = "Lexus", ClientId = 10, Client = Clients.Single(client => client.Id == 10) },
-                new Car { Id = 14, CarCategory = CarCategory.Truck, LicensePlate = "У606УУ", Brand = "GMC", ClientId = 11, Client = Clients.Single(client => client.Id == 11) },
-                new Car { Id = 15, CarCategory = CarCategory.Passenger, LicensePlate = "Х707ХХ", Brand = "Peugeot", ClientId = 12, Client = Clients.Single(client => client.Id == 12) }
+                new Car { Id = 1, CarCategory = CarCategory.Passenger, LicensePlate = "А111АА", Brand = "Chevrolet", CustomerId = 1, Customer = GetCustomer(1) },
+                new Car { Id = 2, CarCategory = CarCategory.Passenger, LicensePlate = "А222АА", Brand = "Cadillac", CustomerId = 1, Customer = GetCustomer(1) },
+                new Car { Id = 3, CarCategory = CarCategory.Passenger, LicensePlate = "О248ВН", Brand = "BMW", CustomerId = 2, Customer = GetCustomer(2) },
+                new Car { Id = 4, CarCategory = CarCategory.Passenger, LicensePlate = "О249ВН", Brand = "BMW", CustomerId = 2, Customer = GetCustomer(2) },
+                new Car { Id = 5, CarCategory = CarCategory.Motorcycle, LicensePlate = "С555СС", Brand = "Harley-Davidson", CustomerId = 2, Customer = GetCustomer(3) },
+                new Car { Id = 6, CarCategory = CarCategory.Motorcycle, LicensePlate = "Е666ЕЕ", Brand = "Honda", CustomerId = 4, Customer = GetCustomer(4) },
+                new Car { Id = 7, CarCategory = CarCategory.Passenger, LicensePlate = "К777КК", Brand = "Lada", CustomerId = 5, Customer = GetCustomer(5) },
+                new Car { Id = 8, CarCategory = CarCategory.Truck, LicensePlate = "М571АК", Brand = "KamAZ", CustomerId = 6, Customer = GetCustomer(6) },
+                new Car { Id = 9, CarCategory = CarCategory.Passenger, LicensePlate = "Н101НН", Brand = "Skoda", CustomerId = 7, Customer = GetCustomer(7) },
+                new Car { Id = 10, CarCategory = CarCategory.Passenger, LicensePlate = "О202ОО", Brand = "Volvo", CustomerId = 8, Customer = GetCustomer(8) }, 
+                new Car { Id = 11, CarCategory = CarCategory.Passenger, LicensePlate = "Р303РР", Brand = "Nissan", CustomerId = 9, Customer = GetCustomer(9) },
+                new Car { Id = 12, CarCategory = CarCategory.Passenger, LicensePlate = "Т404ТТ", Brand = "Mazda", CustomerId = 10, Customer = GetCustomer(10) },
+                new Car { Id = 13, CarCategory = CarCategory.Passenger, LicensePlate = "Т505ТТ", Brand = "Lexus", CustomerId = 10, Customer = GetCustomer(10) },
+                new Car { Id = 14, CarCategory = CarCategory.Truck, LicensePlate = "У606УУ", Brand = "GMC", CustomerId = 11, Customer = GetCustomer(11) },
+                new Car { Id = 15, CarCategory = CarCategory.Passenger, LicensePlate = "Х707ХХ", Brand = "Peugeot", CustomerId = 12, Customer = GetCustomer(12) }
             ]);
 
-        Services.AddRange(
+        Procedures.AddRange(
             [
-                new CarWashService
+                new CarWashProcedure
                 {
                     Id = 1,
                     Name = "Комплексная мойка",
@@ -164,7 +164,7 @@ public class CarWashData
                     Price = 1500m,
                     Duration = TimeSpan.FromMinutes(60)
                 },
-                new CarWashService
+                new CarWashProcedure
                 {
                     Id = 2,
                     Name = "Мойка кузова",
@@ -172,7 +172,7 @@ public class CarWashData
                     Price = 800m,
                     Duration = TimeSpan.FromMinutes(30)
                 },
-                new CarWashService
+                new CarWashProcedure
                 {
                     Id = 3,
                     Name = "Мойка салона",
@@ -180,7 +180,7 @@ public class CarWashData
                     Price = 1000m,
                     Duration = TimeSpan.FromMinutes(45)
                 },
-                new CarWashService
+                new CarWashProcedure
                 {
                     Id = 4,
                     Name = "Мойка двигателя",
@@ -188,7 +188,7 @@ public class CarWashData
                     Price = 1200m,
                     Duration = TimeSpan.FromMinutes(40)
                 },
-                new CarWashService
+                new CarWashProcedure
                 {
                     Id = 5,
                     Name = "Полировка кузова",
@@ -196,7 +196,7 @@ public class CarWashData
                     Price = 3000m,
                     Duration = TimeSpan.FromMinutes(120)
                 },
-                new CarWashService
+                new CarWashProcedure
                 {
                     Id = 6,
                     Name = "Мойка внедорожника",
@@ -204,7 +204,7 @@ public class CarWashData
                     Price = 2000m,
                     Duration = TimeSpan.FromMinutes(75)
                 },
-                new CarWashService
+                new CarWashProcedure
                 {
                     Id = 7,
                     Name = "Мойка микроавтобуса",
@@ -212,7 +212,7 @@ public class CarWashData
                     Price = 2500m,
                     Duration = TimeSpan.FromMinutes(90)
                 },
-                new CarWashService
+                new CarWashProcedure
                 {
                     Id = 8,
                     Name = "Мойка грузового автомобиля",
@@ -220,7 +220,7 @@ public class CarWashData
                     Price = 4000m,
                     Duration = TimeSpan.FromMinutes(120)
                 },
-                new CarWashService
+                new CarWashProcedure
                 {
                     Id = 9,
                     Name = "Мойка автобуса",
@@ -228,7 +228,7 @@ public class CarWashData
                     Price = 5000m,
                     Duration = TimeSpan.FromMinutes(150)
                 },
-                new CarWashService
+                new CarWashProcedure
                 {
                     Id = 10,
                     Name = "Мойка мотоцикла",
@@ -270,14 +270,14 @@ public class CarWashData
                 CreateOrder(25, 15, 2, new(2026, 9, 15, 12, 0, 0), 3),
             ]);
 
-        foreach (var client in Clients)
+        foreach (var customer in Customers)
         {
-            client.Cars = Cars
-                .Where(car => car.ClientId == client.Id)
+            customer.Cars = Cars
+                .Where(car => car.CustomerId == customer.Id)
                 .ToList();
 
-            client.Orders = Orders
-                .Where(order => order.Car.ClientId == client.Id)
+            customer.Orders = Orders
+                .Where(order => order.Car.CustomerId == customer.Id)
                 .ToList();
         }
 
@@ -288,10 +288,10 @@ public class CarWashData
                 .ToList();
         }
 
-        foreach (var service in Services)
+        foreach (var procedure in Procedures)
         {
-            service.Orders = Orders
-                .Where(order => order.ServiceId == service.Id)
+            procedure.Orders = Orders
+                .Where(order => order.ProcedureId == procedure.Id)
                 .ToList();
         }
     }
@@ -299,7 +299,7 @@ public class CarWashData
     private Order CreateOrder(
         int id,
         int carId,
-        int serviceId,
+        int procedureId,
         DateTime startTime,
         int washBoxNumber) =>
         new()
@@ -307,8 +307,8 @@ public class CarWashData
             Id = id,
             CarId = carId,
             Car = GetCar(carId),
-            ServiceId = serviceId,
-            Service = GetService(serviceId),
+            ProcedureId = procedureId,
+            Procedure = GetProcedure(procedureId),
             StartTime = startTime,
             WashBoxNumber = washBoxNumber
         };
@@ -327,16 +327,30 @@ public class CarWashData
         }
     }
 
-    private CarWashService GetService(int serviceId)
+    private CarWashCustomer GetCustomer(int customerId)
     {
         try
         {
-            return Services.Single(service => service.Id == serviceId);
+            return Customers.Single(customer => customer.Id == customerId);
         }
         catch (InvalidOperationException exception)
         {
             throw new InvalidOperationException(
-                $"Не удалось найти единственную услугу с ID = {serviceId}",
+                $"Не удалось найти единственного клиента с ID = {customerId}",
+                exception);
+        }
+    }
+
+    private CarWashProcedure GetProcedure(int procedureId)
+    {
+        try
+        {
+            return Procedures.Single(procedure => procedure.Id == procedureId);
+        }
+        catch (InvalidOperationException exception)
+        {
+            throw new InvalidOperationException(
+                $"Не удалось найти единственную услугу с ID = {procedureId}",
                 exception);
         }
     }

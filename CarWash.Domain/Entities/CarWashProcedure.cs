@@ -5,7 +5,7 @@ namespace CarWash.Domain.Entities;
 /// <summary>
 /// Услуга автомойки
 /// </summary>
-public class CarWashService
+public class CarWashProcedure
 {
     /// <summary>
     /// Уникальный идентификатор услуги

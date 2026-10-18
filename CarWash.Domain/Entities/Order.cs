@@ -23,12 +23,12 @@ public class Order
     /// <summary>
     /// Идентификатор услуги
     /// </summary>
-    public int ServiceId { get; set; }
+    public int ProcedureId { get; set; }
 
     /// <summary>
     /// Услуга, выполняемая по заказу
     /// </summary>
-    public required CarWashService Service { get; set; }
+    public required CarWashProcedure Procedure { get; set; }
 
     /// <summary>
     /// Дата и время начала обслуживания

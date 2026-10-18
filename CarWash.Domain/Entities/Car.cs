@@ -30,12 +30,12 @@ public class Car
     /// <summary>
     /// Идентификатор владельца автомобиля
     /// </summary>
-    public int ClientId { get; set; }
+    public int CustomerId { get; set; }
 
     /// <summary>
     /// Владелец автомобиля
     /// </summary>
-    public required CarWashClient Client { get; set; }
+    public required CarWashCustomer Customer { get; set; }
 
     /// <summary>
     /// Заказы на обслуживание автомобиля
