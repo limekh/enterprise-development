@@ -44,7 +44,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
                 "An exception happened during {method} method of {controller}: {@exception}",
                 nameof(Create), GetType().Name, ex);
 
-            return StatusCode(500, $"{ex.Message}\n\r{ex.InnerException?.Message}");
+            return StatusCode(500, "An internal server error occurred.");
         }
     }
 
@@ -76,7 +76,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
                 "An exception happened during {method} method of {controller}: {@exception}",
                 nameof(Edit), GetType().Name, ex);
 
-            return StatusCode(500, $"{ex.Message}\n\r{ex.InnerException?.Message}");
+            return StatusCode(500, "An internal server error occurred.");
         }
     }
 
@@ -108,7 +108,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
                 "An exception happened during {method} method of {controller}: {@exception}",
                 nameof(Delete), GetType().Name, ex);
 
-            return StatusCode(500, $"{ex.Message}\n\r{ex.InnerException?.Message}");
+            return StatusCode(500, "An internal server error occurred.");
         }
     }
 
@@ -140,7 +140,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
                 "An exception happened during {method} method of {controller}: {@exception}",
                 nameof(GetAll), GetType().Name, ex);
 
-            return StatusCode(500, $"{ex.Message}\n\r{ex.InnerException?.Message}");
+            return StatusCode(500, "An internal server error occurred.");
         }
     }
 
@@ -173,7 +173,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
                 "An exception happened during {method} method of {controller}: {@exception}",
                 nameof(Get), GetType().Name, ex);
 
-            return StatusCode(500, $"{ex.Message}\n\r{ex.InnerException?.Message}");
+            return StatusCode(500, "An internal server error occurred.");
         }
     }
 
