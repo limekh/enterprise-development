@@ -127,7 +127,7 @@ public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
     }
 
     /// <summary>
-    /// 5. Получить суммарную выручку по каждой услуге.
+    /// 5. Получить суммарную выручку по каждой услуге
     /// </summary>
     [Theory]
     [InlineData(1, 12000)]
