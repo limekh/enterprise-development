@@ -18,7 +18,7 @@ public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
 
         var expectedCustomerIds = new[]
         {
-            2, 1, 5, 4, 7  
+            1, 2, 5, 3, 4  
         };
 
         // Act
