@@ -26,7 +26,7 @@ public class AnalyticsService(CarWashData data) : IAnalyticsService
     /// <inheritdoc/>
     public List<int> GetCarsCurrentlyAtCarWash()
     {
-        DateTime now = data.Now;
+        var now = data.Now;
 
         return data.Orders
             .Where(order =>

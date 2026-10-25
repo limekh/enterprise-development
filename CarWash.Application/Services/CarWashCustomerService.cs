@@ -13,7 +13,7 @@ public class CarWashCustomerService(
 {
     public CarWashCustomerDto Create(CarWashCustomerCreateUpdateDto dto)
     {
-        int newId = customerRepository.ReadAll()
+        var newId = customerRepository.ReadAll()
             .Select(customer => customer.Id)
             .DefaultIfEmpty(0)
             .Max() + 1;

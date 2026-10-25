@@ -16,11 +16,10 @@ public class OrderService(
 {
     public OrderDto Create(OrderCreateUpdateDto dto)
     {
-        Car car = carRepository.Read(dto.CarId);
-        CarWashProcedure procedure =
-            procedureRepository.Read(dto.ProcedureId);
+        var car = carRepository.Read(dto.CarId);
+        var procedure = procedureRepository.Read(dto.ProcedureId);
 
-        int newId = orderRepository.ReadAll()
+        var newId = orderRepository.ReadAll()
             .Select(order => order.Id)
             .DefaultIfEmpty(0)
             .Max() + 1;
@@ -57,10 +56,9 @@ public class OrderService(
 
     public OrderDto Update(OrderCreateUpdateDto dto, int dtoId)
     {
-        Order oldOrder = orderRepository.Read(dtoId);
-        Car car = carRepository.Read(dto.CarId);
-        CarWashProcedure procedure =
-            procedureRepository.Read(dto.ProcedureId);
+        var oldOrder = orderRepository.Read(dtoId);
+        var car = carRepository.Read(dto.CarId);
+        var procedure = procedureRepository.Read(dto.ProcedureId);
 
         oldOrder.Car.Orders.Remove(oldOrder);
         oldOrder.Procedure.Orders.Remove(oldOrder);
@@ -85,7 +83,7 @@ public class OrderService(
 
     public void Delete(int dtoId)
     {
-        Order order = orderRepository.Read(dtoId);
+        var order = orderRepository.Read(dtoId);
 
         order.Car.Orders.Remove(order);
         order.Procedure.Orders.Remove(order);

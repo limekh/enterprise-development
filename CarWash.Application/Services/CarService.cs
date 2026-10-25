@@ -14,9 +14,9 @@ public class CarService(
 {
     public CarDto Create(CarCreateUpdateDto dto)
     {
-        CarWashCustomer customer = customerRepository.Read(dto.CustomerId);
+        var customer = customerRepository.Read(dto.CustomerId);
 
-        int newId = carRepository.ReadAll()
+        var newId = carRepository.ReadAll()
             .Select(car => car.Id)
             .DefaultIfEmpty(0)
             .Max() + 1;
@@ -52,8 +52,8 @@ public class CarService(
 
     public CarDto Update(CarCreateUpdateDto dto, int dtoId)
     {
-        Car oldCar = carRepository.Read(dtoId);
-        CarWashCustomer customer = customerRepository.Read(dto.CustomerId);
+        var oldCar = carRepository.Read(dtoId);
+        var customer = customerRepository.Read(dto.CustomerId);
 
         oldCar.Customer.Cars.Remove(oldCar);
 
@@ -76,7 +76,7 @@ public class CarService(
 
     public void Delete(int dtoId)
     {
-        Car car = carRepository.Read(dtoId);
+        var car = carRepository.Read(dtoId);
 
         car.Customer.Cars.Remove(car);
         carRepository.Delete(dtoId);

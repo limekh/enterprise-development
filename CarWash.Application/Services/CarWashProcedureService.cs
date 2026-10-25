@@ -14,7 +14,7 @@ public class CarWashProcedureService(
 {
     public CarWashProcedureDto Create(CarWashProcedureCreateUpdateDto dto)
     {
-        int newId = procedureRepository.ReadAll()
+        var newId = procedureRepository.ReadAll()
             .Select(procedure => procedure.Id)
             .DefaultIfEmpty(0)
             .Max() + 1;
@@ -49,7 +49,7 @@ public class CarWashProcedureService(
         CarWashProcedureCreateUpdateDto dto,
         int dtoId)
     {
-        CarWashProcedure oldProcedure = procedureRepository.Read(dtoId);
+        var oldProcedure = procedureRepository.Read(dtoId);
 
         var procedure = new CarWashProcedure
         {
