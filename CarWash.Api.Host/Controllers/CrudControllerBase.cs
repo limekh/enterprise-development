@@ -25,7 +25,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     public ActionResult<TDto> Create(TCreateUpdateDto newDto)
     {
         logger.LogInformation(
-            "{method} method of {controller} is called with {@dto} parameter",
+            "Вызван метод {method} контроллера {controller} с параметром {@dto}",
             nameof(Create), GetType().Name, newDto);
 
         try
@@ -33,7 +33,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
             var result = appService.Create(newDto);
 
             logger.LogInformation(
-                "{method} method of {controller} executed successfully",
+                "Метод {method} контроллера {controller} успешно выполнен",
                 nameof(Create), GetType().Name);
 
             return CreatedAtAction(nameof(Get), new { id = GetId(result) }, result);
@@ -41,10 +41,11 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
         catch (Exception ex)
         {
             logger.LogError(
-                "An exception happened during {method} method of {controller}: {@exception}",
-                nameof(Create), GetType().Name, ex);
+                ex,
+                "Ошибка при выполнении метода {method} контроллера {controller}",
+                nameof(Create), GetType().Name);
 
-            return StatusCode(500, "An internal server error occurred.");
+            return StatusCode(500, "Внутренняя ошибка сервера");
         }
     }
 
@@ -57,7 +58,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     public ActionResult<TDto> Edit(TKey id, TCreateUpdateDto newDto)
     {
         logger.LogInformation(
-            "{method} method of {controller} is called with {key},{@dto} parameters",
+            "Вызван метод {method} контроллера {controller} с параметрами {key},{@dto}",
             nameof(Edit), GetType().Name, id, newDto);
 
         try
@@ -65,7 +66,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
             var result = appService.Update(newDto, id);
 
             logger.LogInformation(
-                "{method} method of {controller} executed successfully",
+                "Метод {method} контроллера {controller} успешно выполнен",
                 nameof(Edit), GetType().Name);
 
             return Ok(result);
@@ -73,10 +74,11 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
         catch (Exception ex)
         {
             logger.LogError(
-                "An exception happened during {method} method of {controller}: {@exception}",
-                nameof(Edit), GetType().Name, ex);
+                ex,
+                "Ошибка при выполнении метода {method} контроллера {controller}",
+                nameof(Edit), GetType().Name);
 
-            return StatusCode(500, "An internal server error occurred.");
+            return StatusCode(500, "Внутренняя ошибка сервера");
         }
     }
 
@@ -89,7 +91,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     public IActionResult Delete(TKey id)
     {
         logger.LogInformation(
-            "{method} method of {controller} is called with {id} parameter",
+            "Вызван метод {method} контроллера {controller} с параметром {id}",
             nameof(Delete), GetType().Name, id);
 
         try
@@ -97,7 +99,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
             appService.Delete(id);
 
             logger.LogInformation(
-                "{method} method of {controller} executed successfully",
+                "Метод {method} контроллера {controller} успешно выполнен",
                 nameof(Delete), GetType().Name);
 
             return Ok();
@@ -105,10 +107,11 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
         catch (Exception ex)
         {
             logger.LogError(
-                "An exception happened during {method} method of {controller}: {@exception}",
-                nameof(Delete), GetType().Name, ex);
+                ex,
+                "Ошибка при выполнении метода {method} контроллера {controller}",
+                nameof(Delete), GetType().Name);
 
-            return StatusCode(500, "An internal server error occurred.");
+            return StatusCode(500, "Внутренняя ошибка сервера");
         }
     }
 
@@ -121,7 +124,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     public ActionResult<IList<TDto>> GetAll()
     {
         logger.LogInformation(
-            "{method} method of {controller} is called",
+            "Вызван метод {method} контроллера {controller}",
             nameof(GetAll), GetType().Name);
 
         try
@@ -129,7 +132,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
             var result = appService.GetAll();
 
             logger.LogInformation(
-                "{method} method of {controller} executed successfully",
+                "Метод {method} контроллера {controller} успешно выполнен",
                 nameof(GetAll), GetType().Name);
 
             return Ok(result);
@@ -137,10 +140,11 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
         catch (Exception ex)
         {
             logger.LogError(
-                "An exception happened during {method} method of {controller}: {@exception}",
-                nameof(GetAll), GetType().Name, ex);
+                ex,
+                "Ошибка при выполнении метода {method} контроллера {controller}",
+                nameof(GetAll), GetType().Name);
 
-            return StatusCode(500, "An internal server error occurred.");
+            return StatusCode(500, "Внутренняя ошибка сервера");
         }
     }
 
@@ -154,7 +158,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     public ActionResult<TDto> Get(TKey id)
     {
         logger.LogInformation(
-            "{method} method of {controller} is called with {id} parameter",
+            "Вызван метод {method} контроллера {controller} с параметром {id}",
             nameof(Get), GetType().Name, id);
 
         try
@@ -162,7 +166,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
             var result = appService.Get(id);
 
             logger.LogInformation(
-                "{method} method of {controller} executed successfully",
+                "Метод {method} контроллера {controller} успешно выполнен",
                 nameof(Get), GetType().Name);
 
             return result != null ? Ok(result) : NoContent();
@@ -170,10 +174,11 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
         catch (Exception ex)
         {
             logger.LogError(
-                "An exception happened during {method} method of {controller}: {@exception}",
-                nameof(Get), GetType().Name, ex);
+                ex,
+                "Ошибка при выполнении метода {method} контроллера {controller}",
+                nameof(Get), GetType().Name);
 
-            return StatusCode(500, "An internal server error occurred.");
+            return StatusCode(500, "Внутренняя ошибка сервера");
         }
     }
 

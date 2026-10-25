@@ -23,7 +23,7 @@ public class AnalyticsController(
         GetTopFiveCustomersByVisitCount()
     {
         logger.LogInformation(
-            "{method} method of {controller} is called",
+            "Вызван метод {method} контроллера {controller}",
             nameof(GetTopFiveCustomersByVisitCount), GetType().Name);
 
         try
@@ -31,7 +31,7 @@ public class AnalyticsController(
             var result = service.GetTopFiveCustomersByVisitCount();
 
             logger.LogInformation(
-                "{method} method of {controller} executed successfully",
+                "Метод {method} контроллера {controller} успешно выполнен",
                 nameof(GetTopFiveCustomersByVisitCount), GetType().Name);
 
             return result.Count > 0 ? Ok(result) : NoContent();
@@ -40,10 +40,10 @@ public class AnalyticsController(
         {
             logger.LogError(
                 ex,
-                "An exception happened during {method} method of {controller}",
+                "Ошибка при выполнении метода {method} контроллера {controller}",
                 nameof(GetTopFiveCustomersByVisitCount), GetType().Name);
 
-            return StatusCode(500, "An internal server error occurred");
+            return StatusCode(500, "Внутренняя ошибка сервера");
         }
     }
 
@@ -57,7 +57,7 @@ public class AnalyticsController(
     public ActionResult<List<int>> GetCarsCurrentlyAtCarWash()
     {
         logger.LogInformation(
-            "{method} method of {controller} is called",
+            "Вызван метод {method} контроллера {controller}",
             nameof(GetCarsCurrentlyAtCarWash), GetType().Name);
 
         try
@@ -65,7 +65,7 @@ public class AnalyticsController(
             var result = service.GetCarsCurrentlyAtCarWash();
 
             logger.LogInformation(
-                "{method} method of {controller} executed successfully",
+                "Метод {method} контроллера {controller} успешно выполнен",
                 nameof(GetCarsCurrentlyAtCarWash), GetType().Name);
 
             return result.Count > 0 ? Ok(result) : NoContent();
@@ -74,10 +74,10 @@ public class AnalyticsController(
         {
             logger.LogError(
                 ex,
-                "An exception happened during {method} method of {controller}",
+                "Ошибка при выполнении метода {method} контроллера {controller}",
                 nameof(GetCarsCurrentlyAtCarWash), GetType().Name);
 
-            return StatusCode(500, "An internal server error occurred");
+            return StatusCode(500, "Внутренняя ошибка сервера");
         }
     }
 
@@ -91,7 +91,7 @@ public class AnalyticsController(
     public ActionResult<List<int>> GetTopPopularProcedures()
     {
         logger.LogInformation(
-            "{method} method of {controller} is called",
+            "Вызван метод {method} контроллера {controller}",
             nameof(GetTopPopularProcedures), GetType().Name);
 
         try
@@ -99,7 +99,7 @@ public class AnalyticsController(
             var result = service.GetTopPopularProcedures();
 
             logger.LogInformation(
-                "{method} method of {controller} executed successfully",
+                "Метод {method} контроллера {controller} успешно выполнен",
                 nameof(GetTopPopularProcedures), GetType().Name);
 
             return result.Count > 0 ? Ok(result) : NoContent();
@@ -108,10 +108,10 @@ public class AnalyticsController(
         {
             logger.LogError(
                 ex,
-                "An exception happened during {method} method of {controller}",
+                "Ошибка при выполнении метода {method} контроллера {controller}",
                 nameof(GetTopPopularProcedures), GetType().Name);
 
-            return StatusCode(500, "An internal server error occurred");
+            return StatusCode(500, "Внутренняя ошибка сервера");
         }
     }
 
@@ -125,7 +125,7 @@ public class AnalyticsController(
         [FromQuery] int washBoxNumber)
     {
         logger.LogInformation(
-            "{method} method of {controller} is called with {washBoxNumber} parameter",
+            "Вызван метод {method} контроллера {controller} с параметром {washBoxNumber}",
             nameof(GetWashBoxReleaseTime), GetType().Name, washBoxNumber);
 
         try
@@ -133,7 +133,7 @@ public class AnalyticsController(
             var result = service.GetWashBoxReleaseTime(washBoxNumber);
 
             logger.LogInformation(
-                "{method} method of {controller} executed successfully",
+                "Метод {method} контроллера {controller} успешно выполнен",
                 nameof(GetWashBoxReleaseTime), GetType().Name);
 
             return Ok(result);
@@ -142,10 +142,10 @@ public class AnalyticsController(
         {
             logger.LogError(
                 ex,
-                "An exception happened during {method} method of {controller}",
+                "Ошибка при выполнении метода {method} контроллера {controller}",
                 nameof(GetWashBoxReleaseTime), GetType().Name);
 
-            return StatusCode(500, "An internal server error occurred");
+            return StatusCode(500, "Внутренняя ошибка сервера");
         }
     }
 
@@ -159,7 +159,7 @@ public class AnalyticsController(
         [FromQuery] int procedureId)
     {
         logger.LogInformation(
-            "{method} method of {controller} is called with {procedureId} parameter",
+            "Вызван метод {method} контроллера {controller} с параметром {procedureId}",
             nameof(CalculateProcedureRevenue), GetType().Name, procedureId);
 
         try
@@ -167,7 +167,7 @@ public class AnalyticsController(
             var result = service.CalculateProcedureRevenue(procedureId);
 
             logger.LogInformation(
-                "{method} method of {controller} executed successfully",
+                "Метод {method} контроллера {controller} успешно выполнен",
                 nameof(CalculateProcedureRevenue), GetType().Name);
 
             return Ok(result);
@@ -176,10 +176,10 @@ public class AnalyticsController(
         {
             logger.LogError(
                 ex,
-                "An exception happened during {method} method of {controller}",
+                "Ошибка при выполнении метода {method} контроллера {controller}",
                 nameof(CalculateProcedureRevenue), GetType().Name);
 
-            return StatusCode(500, "An internal server error occurred");
+            return StatusCode(500, "Внутренняя ошибка сервера");
         }
     }
 }
