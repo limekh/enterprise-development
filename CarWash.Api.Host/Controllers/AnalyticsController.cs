@@ -19,7 +19,7 @@ public class AnalyticsController(
     [ProducesResponseType(200)]
     [ProducesResponseType(204)]
     [ProducesResponseType(500)]
-    public ActionResult<List<KeyValuePair<int, int>>>
+    public ActionResult<TopCustomerDto>
         GetTopFiveCustomersByVisitCount()
     {
         logger.LogInformation(
@@ -39,11 +39,11 @@ public class AnalyticsController(
         catch (Exception ex)
         {
             logger.LogError(
-                "An exception happened during {method} method of {controller}: {@exception}",
-                nameof(GetTopFiveCustomersByVisitCount), GetType().Name, ex);
+                ex,
+                "An exception happened during {method} method of {controller}",
+                nameof(GetTopFiveCustomersByVisitCount), GetType().Name);
 
-            return StatusCode(
-                500, $"{ex.Message}\n\r{ex.InnerException?.Message}");
+            return StatusCode(500, "An internal server error occurred");
         }
     }
 
@@ -73,11 +73,11 @@ public class AnalyticsController(
         catch (Exception ex)
         {
             logger.LogError(
-                "An exception happened during {method} method of {controller}: {@exception}",
-                nameof(GetCarsCurrentlyAtCarWash), GetType().Name, ex);
+                ex,
+                "An exception happened during {method} method of {controller}",
+                nameof(GetCarsCurrentlyAtCarWash), GetType().Name);
 
-            return StatusCode(
-                500, $"{ex.Message}\n\r{ex.InnerException?.Message}");
+            return StatusCode(500, "An internal server error occurred");
         }
     }
 
@@ -107,11 +107,11 @@ public class AnalyticsController(
         catch (Exception ex)
         {
             logger.LogError(
-                "An exception happened during {method} method of {controller}: {@exception}",
-                nameof(GetTopPopularProcedures), GetType().Name, ex);
+                ex,
+                "An exception happened during {method} method of {controller}",
+                nameof(GetTopPopularProcedures), GetType().Name);
 
-            return StatusCode(
-                500, $"{ex.Message}\n\r{ex.InnerException?.Message}");
+            return StatusCode(500, "An internal server error occurred");
         }
     }
 
@@ -141,11 +141,11 @@ public class AnalyticsController(
         catch (Exception ex)
         {
             logger.LogError(
-                "An exception happened during {method} method of {controller}: {@exception}",
-                nameof(GetWashBoxReleaseTime), GetType().Name, ex);
+                ex,
+                "An exception happened during {method} method of {controller}",
+                nameof(GetWashBoxReleaseTime), GetType().Name);
 
-            return StatusCode(
-                500, $"{ex.Message}\n\r{ex.InnerException?.Message}");
+            return StatusCode(500, "An internal server error occurred");
         }
     }
 
@@ -175,11 +175,11 @@ public class AnalyticsController(
         catch (Exception ex)
         {
             logger.LogError(
-                "An exception happened during {method} method of {controller}: {@exception}",
-                nameof(CalculateProcedureRevenue), GetType().Name, ex);
+                ex,
+                "An exception happened during {method} method of {controller}",
+                nameof(CalculateProcedureRevenue), GetType().Name);
 
-            return StatusCode(
-                500, $"{ex.Message}\n\r{ex.InnerException?.Message}");
+            return StatusCode(500, "An internal server error occurred");
         }
     }
 }
