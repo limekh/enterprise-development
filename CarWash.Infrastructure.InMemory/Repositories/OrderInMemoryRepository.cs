@@ -32,8 +32,7 @@ public class OrderInMemoryRepository(CarWashData data)
 
     public void Delete(int entityId)
     {
-        Order order = Read(entityId);
-        if (order != null)
-            data.Orders.Remove(order);
+        var order = Read(entityId);
+        data.Orders.Remove(order);
     }
 }

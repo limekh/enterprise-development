@@ -32,8 +32,7 @@ public class CarWashCustomerInMemoryRepository(CarWashData data)
 
     public void Delete(int entityId)
     {
-        CarWashCustomer customer = Read(entityId);
-        if (customer != null)
-            data.Customers.Remove(customer);
+        var customer = Read(entityId);
+        data.Customers.Remove(customer);
     }
 }

@@ -32,8 +32,7 @@ public class CarWashProcedureInMemoryRepository(CarWashData data)
 
     public void Delete(int entityId)
     {
-        CarWashProcedure procedure = Read(entityId);
-        if (procedure != null)
-            data.Procedures.Remove(procedure);
+        var procedure = Read(entityId);
+        data.Procedures.Remove(procedure);
     }
 }
