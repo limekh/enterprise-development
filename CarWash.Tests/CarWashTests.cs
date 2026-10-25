@@ -143,7 +143,7 @@ public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
 
         // Act
         var actualRevenue = orders
-            .Where(order => order.ProcedureId == ProcedureId)
+            .Where(order => order.ProcedureId == procedureId)
             .Sum(order => order.Procedure.Price);
 
         // Assert
