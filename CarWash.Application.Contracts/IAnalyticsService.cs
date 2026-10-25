@@ -1,5 +1,4 @@
-﻿
-namespace CarWash.Application.Contracts;
+﻿namespace CarWash.Application.Contracts;
 
 /// <summary>
 /// Служба для выполнения аналитических запросов автомойки
@@ -9,7 +8,7 @@ public interface IAnalyticsService
     /// <summary>
     /// Получает топ 5 клиентов по количеству посещений автомойки
     /// </summary>
-    List<KeyValuePair<int, int>> GetTopFiveCustomersByVisitCount();
+    List<TopCustomerDto> GetTopFiveCustomersByVisitCount();
 
     /// <summary>
     /// Получает автомобили, находящиеся на мойке в данный момент

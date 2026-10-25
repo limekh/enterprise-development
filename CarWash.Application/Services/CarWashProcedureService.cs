@@ -1,5 +1,4 @@
-﻿
-using CarWash.Application.Contracts.Procedures;
+﻿using CarWash.Application.Contracts.Procedures;
 using CarWash.Domain.Entities;
 using CarWash.Infrastructure.InMemory;
 

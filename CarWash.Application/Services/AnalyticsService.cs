@@ -1,5 +1,4 @@
-﻿
-using CarWash.Application.Contracts;
+﻿using CarWash.Application.Contracts;
 using CarWash.Domain.Data;
 
 namespace CarWash.Application.Services;
@@ -10,15 +9,15 @@ namespace CarWash.Application.Services;
 public class AnalyticsService(CarWashData data) : IAnalyticsService
 {
     /// <inheritdoc/>
-    public List<KeyValuePair<int, int>> GetTopFiveCustomersByVisitCount()
+    public List<TopCustomerDto> GetTopFiveCustomersByVisitCount()
     {
         return data.Orders
             .GroupBy(order => order.Car.CustomerId)
-            .Select(group => new KeyValuePair<int, int>(
+            .Select(group => new TopCustomerDto(
                 group.Key,
                 group.Count()))
-            .OrderByDescending(item => item.Value)
-            .ThenBy(item => item.Key)
+            .OrderByDescending(item => item.VisitCount)
+            .ThenBy(item => item.CustomerId)
             .Take(5)
             .ToList();
     }
