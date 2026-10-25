@@ -135,7 +135,7 @@ public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
     [InlineData(3, 4000)]
     [InlineData(5, 6000)]
     public void CalculateProcedureRevenue(
-        int ProcedureId,
+        int procedureId,
         decimal expectedRevenue)
     {
         // Arrange
