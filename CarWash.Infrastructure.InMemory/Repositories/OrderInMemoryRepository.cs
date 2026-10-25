@@ -26,8 +26,14 @@ public class OrderInMemoryRepository(CarWashData data)
 
     public void Update(Order entity)
     {
-        Delete(entity.Id);
-        Create(entity);
+        var existingOrder = Read(entity.Id);
+
+        existingOrder.CarId = entity.CarId;
+        existingOrder.Car = entity.Car;
+        existingOrder.ProcedureId = entity.ProcedureId;
+        existingOrder.Procedure = entity.Procedure;
+        existingOrder.StartTime = entity.StartTime;
+        existingOrder.WashBoxNumber = entity.WashBoxNumber;
     }
 
     public void Delete(int entityId)

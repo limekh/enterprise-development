@@ -52,24 +52,22 @@ public class CarService(
 
     public CarDto Update(CarCreateUpdateDto dto, int dtoId)
     {
-        var oldCar = carRepository.Read(dtoId);
+        var car = carRepository.Read(dtoId);
         var customer = customerRepository.Read(dto.CustomerId);
 
-        oldCar.Customer.Cars.Remove(oldCar);
-
-        var car = new Car
+        if (car.CustomerId != customer.Id)
         {
-            Id = dtoId,
-            CarCategory = dto.CarCategory,
-            LicensePlate = dto.LicensePlate,
-            Brand = dto.Brand,
-            CustomerId = customer.Id,
-            Customer = customer,
-            Orders = oldCar.Orders
-        };
+            car.Customer.Cars.Remove(car);
+            customer.Cars.Add(car);
+        }
+
+        car.CarCategory = dto.CarCategory;
+        car.LicensePlate = dto.LicensePlate;
+        car.Brand = dto.Brand;
+        car.CustomerId = customer.Id;
+        car.Customer = customer;
 
         carRepository.Update(car);
-        customer.Cars.Add(car);
 
         return MapToDto(car);
     }

@@ -55,27 +55,30 @@ public class OrderService(
 
     public OrderDto Update(OrderCreateUpdateDto dto, int dtoId)
     {
-        var oldOrder = orderRepository.Read(dtoId);
+        var order = orderRepository.Read(dtoId);
         var car = carRepository.Read(dto.CarId);
         var procedure = procedureRepository.Read(dto.ProcedureId);
 
-        oldOrder.Car.Orders.Remove(oldOrder);
-        oldOrder.Procedure.Orders.Remove(oldOrder);
-
-        var order = new Order
+        if (order.CarId != car.Id)
         {
-            Id = dtoId,
-            CarId = car.Id,
-            Car = car,
-            ProcedureId = procedure.Id,
-            Procedure = procedure,
-            StartTime = dto.StartTime,
-            WashBoxNumber = dto.WashBoxNumber
-        };
+            order.Car.Orders.Remove(order);
+            car.Orders.Add(order);
+        }
+
+        if (order.ProcedureId != procedure.Id)
+        {
+            order.Procedure.Orders.Remove(order);
+            procedure.Orders.Add(order);
+        }
+
+        order.CarId = car.Id;
+        order.Car = car;
+        order.ProcedureId = procedure.Id;
+        order.Procedure = procedure;
+        order.StartTime = dto.StartTime;
+        order.WashBoxNumber = dto.WashBoxNumber;
 
         orderRepository.Update(order);
-        car.Orders.Add(order);
-        procedure.Orders.Add(order);
 
         return MapToDto(order);
     }

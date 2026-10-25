@@ -26,8 +26,12 @@ public class CarWashCustomerInMemoryRepository(CarWashData data)
 
     public void Update(CarWashCustomer entity)
     {
-        Delete(entity.Id);
-        Create(entity);
+        var existingCustomer = Read(entity.Id);
+
+        existingCustomer.LastName = entity.LastName;
+        existingCustomer.FirstName = entity.FirstName;
+        existingCustomer.Patronymic = entity.Patronymic;
+        existingCustomer.Phone = entity.Phone;
     }
 
     public void Delete(int entityId)
