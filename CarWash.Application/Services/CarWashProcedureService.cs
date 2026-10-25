@@ -12,12 +12,9 @@ public class CarWashProcedureService(
     IRepository<CarWashProcedure, int> procedureRepository)
     : ICarWashProcedureService
 {
-    private readonly IRepository<CarWashProcedure, int> _procedureRepository =
-        procedureRepository;
-
     public CarWashProcedureDto Create(CarWashProcedureCreateUpdateDto dto)
     {
-        int newId = _procedureRepository.ReadAll()
+        int newId = procedureRepository.ReadAll()
             .Select(procedure => procedure.Id)
             .DefaultIfEmpty(0)
             .Max() + 1;
@@ -31,19 +28,19 @@ public class CarWashProcedureService(
             Duration = dto.Duration
         };
 
-        _procedureRepository.Create(procedure);
+        procedureRepository.Create(procedure);
 
         return MapToDto(procedure);
     }
 
     public CarWashProcedureDto Get(int dtoId)
     {
-        return MapToDto(_procedureRepository.Read(dtoId));
+        return MapToDto(procedureRepository.Read(dtoId));
     }
 
     public List<CarWashProcedureDto> GetAll()
     {
-        return _procedureRepository.ReadAll()
+        return procedureRepository.ReadAll()
             .Select(MapToDto)
             .ToList();
     }
@@ -52,7 +49,7 @@ public class CarWashProcedureService(
         CarWashProcedureCreateUpdateDto dto,
         int dtoId)
     {
-        CarWashProcedure oldProcedure = _procedureRepository.Read(dtoId);
+        CarWashProcedure oldProcedure = procedureRepository.Read(dtoId);
 
         var procedure = new CarWashProcedure
         {
@@ -64,14 +61,14 @@ public class CarWashProcedureService(
             Orders = oldProcedure.Orders
         };
 
-        _procedureRepository.Update(procedure);
+        procedureRepository.Update(procedure);
 
         return MapToDto(procedure);
     }
 
     public void Delete(int dtoId)
     {
-        _procedureRepository.Delete(dtoId);
+        procedureRepository.Delete(dtoId);
     }
 
     private static CarWashProcedureDto MapToDto(

@@ -9,21 +9,19 @@ namespace CarWash.Infrastructure.InMemory.Repositories;
 public class CarWashProcedureInMemoryRepository(CarWashData data)
     : IRepository<CarWashProcedure, int>
 {
-    private readonly List<CarWashProcedure> _procedures = data.Procedures;
-
     public void Create(CarWashProcedure entity)
     {
-        _procedures.Add(entity);
+        data.Procedures.Add(entity);
     }
 
     public CarWashProcedure Read(int entityId)
     {
-        return _procedures.First(procedure => procedure.Id == entityId);
+        return data.Procedures.First(procedure => procedure.Id == entityId);
     }
 
     public List<CarWashProcedure> ReadAll()
     {
-        return [.. _procedures];
+        return [.. data.Procedures];
     }
 
     public void Update(CarWashProcedure entity)
@@ -36,6 +34,6 @@ public class CarWashProcedureInMemoryRepository(CarWashData data)
     {
         CarWashProcedure procedure = Read(entityId);
         if (procedure != null)
-            _procedures.Remove(procedure);
+            data.Procedures.Remove(procedure);
     }
 }

@@ -12,15 +12,11 @@ public class CarService(
     IRepository<CarWashCustomer, int> customerRepository)
     : ICarService
 {
-    private readonly IRepository<Car, int> _carRepository = carRepository;
-    private readonly IRepository<CarWashCustomer, int> _customerRepository =
-        customerRepository;
-
     public CarDto Create(CarCreateUpdateDto dto)
     {
-        CarWashCustomer customer = _customerRepository.Read(dto.CustomerId);
+        CarWashCustomer customer = customerRepository.Read(dto.CustomerId);
 
-        int newId = _carRepository.ReadAll()
+        int newId = carRepository.ReadAll()
             .Select(car => car.Id)
             .DefaultIfEmpty(0)
             .Max() + 1;
@@ -35,7 +31,7 @@ public class CarService(
             Customer = customer
         };
 
-        _carRepository.Create(car);
+        carRepository.Create(car);
 
         customer.Cars.Add(car);
 
@@ -44,20 +40,20 @@ public class CarService(
 
     public CarDto Get(int dtoId)
     {
-        return MapToDto(_carRepository.Read(dtoId));
+        return MapToDto(carRepository.Read(dtoId));
     }
 
     public List<CarDto> GetAll()
     {
-        return _carRepository.ReadAll()
+        return carRepository.ReadAll()
             .Select(MapToDto)
             .ToList();
     }
 
     public CarDto Update(CarCreateUpdateDto dto, int dtoId)
     {
-        Car oldCar = _carRepository.Read(dtoId);
-        CarWashCustomer customer = _customerRepository.Read(dto.CustomerId);
+        Car oldCar = carRepository.Read(dtoId);
+        CarWashCustomer customer = customerRepository.Read(dto.CustomerId);
 
         oldCar.Customer.Cars.Remove(oldCar);
 
@@ -72,7 +68,7 @@ public class CarService(
             Orders = oldCar.Orders
         };
 
-        _carRepository.Update(car);
+        carRepository.Update(car);
         customer.Cars.Add(car);
 
         return MapToDto(car);
@@ -80,10 +76,10 @@ public class CarService(
 
     public void Delete(int dtoId)
     {
-        Car car = _carRepository.Read(dtoId);
+        Car car = carRepository.Read(dtoId);
 
         car.Customer.Cars.Remove(car);
-        _carRepository.Delete(dtoId);
+        carRepository.Delete(dtoId);
     }
 
     private static CarDto MapToDto(Car car)

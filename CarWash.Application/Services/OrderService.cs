@@ -14,18 +14,13 @@ public class OrderService(
     IRepository<CarWashProcedure, int> procedureRepository)
     : IOrderService
 {
-    private readonly IRepository<Order, int> _orderRepository = orderRepository;
-    private readonly IRepository<Car, int> _carRepository = carRepository;
-    private readonly IRepository<CarWashProcedure, int> _procedureRepository =
-        procedureRepository;
-
     public OrderDto Create(OrderCreateUpdateDto dto)
     {
-        Car car = _carRepository.Read(dto.CarId);
+        Car car = carRepository.Read(dto.CarId);
         CarWashProcedure procedure =
-            _procedureRepository.Read(dto.ProcedureId);
+            procedureRepository.Read(dto.ProcedureId);
 
-        int newId = _orderRepository.ReadAll()
+        int newId = orderRepository.ReadAll()
             .Select(order => order.Id)
             .DefaultIfEmpty(0)
             .Max() + 1;
@@ -41,7 +36,7 @@ public class OrderService(
             WashBoxNumber = dto.WashBoxNumber
         };
 
-        _orderRepository.Create(order);
+        orderRepository.Create(order);
         car.Orders.Add(order);
         procedure.Orders.Add(order);
 
@@ -50,22 +45,22 @@ public class OrderService(
 
     public OrderDto Get(int dtoId)
     {
-        return MapToDto(_orderRepository.Read(dtoId));
+        return MapToDto(orderRepository.Read(dtoId));
     }
 
     public List<OrderDto> GetAll()
     {
-        return _orderRepository.ReadAll()
+        return orderRepository.ReadAll()
             .Select(MapToDto)
             .ToList();
     }
 
     public OrderDto Update(OrderCreateUpdateDto dto, int dtoId)
     {
-        Order oldOrder = _orderRepository.Read(dtoId);
-        Car car = _carRepository.Read(dto.CarId);
+        Order oldOrder = orderRepository.Read(dtoId);
+        Car car = carRepository.Read(dto.CarId);
         CarWashProcedure procedure =
-            _procedureRepository.Read(dto.ProcedureId);
+            procedureRepository.Read(dto.ProcedureId);
 
         oldOrder.Car.Orders.Remove(oldOrder);
         oldOrder.Procedure.Orders.Remove(oldOrder);
@@ -81,7 +76,7 @@ public class OrderService(
             WashBoxNumber = dto.WashBoxNumber
         };
 
-        _orderRepository.Update(order);
+        orderRepository.Update(order);
         car.Orders.Add(order);
         procedure.Orders.Add(order);
 
@@ -90,12 +85,12 @@ public class OrderService(
 
     public void Delete(int dtoId)
     {
-        Order order = _orderRepository.Read(dtoId);
+        Order order = orderRepository.Read(dtoId);
 
         order.Car.Orders.Remove(order);
         order.Procedure.Orders.Remove(order);
 
-        _orderRepository.Delete(dtoId);
+        orderRepository.Delete(dtoId);
     }
 
     private static OrderDto MapToDto(Order order)

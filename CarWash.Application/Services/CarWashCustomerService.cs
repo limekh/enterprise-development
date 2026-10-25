@@ -11,12 +11,9 @@ public class CarWashCustomerService(
     IRepository<CarWashCustomer, int> customerRepository)
     : ICarWashCustomerService
 {
-    private readonly IRepository<CarWashCustomer, int> _customerRepository =
-        customerRepository;
-
     public CarWashCustomerDto Create(CarWashCustomerCreateUpdateDto dto)
     {
-        int newId = _customerRepository.ReadAll()
+        int newId = customerRepository.ReadAll()
             .Select(customer => customer.Id)
             .DefaultIfEmpty(0)
             .Max() + 1;
@@ -30,19 +27,19 @@ public class CarWashCustomerService(
             Phone = dto.Phone
         };
 
-        _customerRepository.Create(customer);
+        customerRepository.Create(customer);
 
         return MapToDto(customer);
     }
 
     public CarWashCustomerDto Get(int dtoId)
     {
-        return MapToDto(_customerRepository.Read(dtoId));
+        return MapToDto(customerRepository.Read(dtoId));
     }
 
     public List<CarWashCustomerDto> GetAll()
     {
-        return _customerRepository.ReadAll()
+        return customerRepository.ReadAll()
             .Select(MapToDto)
             .ToList();
     }
@@ -60,14 +57,14 @@ public class CarWashCustomerService(
             Phone = dto.Phone
         };
 
-        _customerRepository.Update(customer);
+        customerRepository.Update(customer);
 
         return MapToDto(customer);
     }
 
     public void Delete(int dtoId)
     {
-        _customerRepository.Delete(dtoId);
+        customerRepository.Delete(dtoId);
     }
 
     private static CarWashCustomerDto MapToDto(CarWashCustomer customer)
