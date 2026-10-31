@@ -1,4 +1,5 @@
-﻿using CarWash.Application.Contracts.Customers;
+﻿using CarWash.Application.Contracts.Cars;
+using CarWash.Application.Contracts.Customers;
 using CarWash.Domain;
 using CarWash.Domain.Entities;
 
@@ -65,6 +66,20 @@ public class CarWashCustomerService(
     public void Delete(int dtoId)
     {
         customerRepository.Delete(dtoId);
+    }
+
+    public List<CarDto> GetCustomerCars(int customerId)
+    {
+        var customer = customerRepository.Read(customerId);
+
+        return customer.Cars
+            .Select(car => new CarDto(
+                car.Id,
+                car.CarCategory,
+                car.LicensePlate,
+                car.Brand,
+                car.CustomerId))
+            .ToList();
     }
 
     private static CarWashCustomerDto MapToDto(CarWashCustomer customer)

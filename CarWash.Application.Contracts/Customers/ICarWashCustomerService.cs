@@ -1,4 +1,5 @@
 ﻿using CarWash.Application.Contracts;
+using CarWash.Application.Contracts.Cars;
 
 namespace CarWash.Application.Contracts.Customers;
 
@@ -8,4 +9,5 @@ namespace CarWash.Application.Contracts.Customers;
 public interface ICarWashCustomerService
     : IApplicationService<CarWashCustomerDto, CarWashCustomerCreateUpdateDto, int>
 {
+    List<CarDto> GetCustomerCars(int customerId);
 }
