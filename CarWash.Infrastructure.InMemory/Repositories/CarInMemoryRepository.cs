@@ -17,7 +17,9 @@ public class CarInMemoryRepository(CarWashData data)
 
     public Car Read(int entityId)
     {
-        return data.Cars.First(car => car.Id == entityId);
+        return data.Cars.FirstOrDefault(car => car.Id == entityId)
+        ?? throw new KeyNotFoundException(
+            $"Автомобиль с идентификатором {entityId} не найден.");
     }
 
     public List<Car> ReadAll()

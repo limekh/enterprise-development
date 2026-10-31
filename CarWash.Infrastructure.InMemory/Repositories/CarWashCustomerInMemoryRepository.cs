@@ -17,7 +17,9 @@ public class CarWashCustomerInMemoryRepository(CarWashData data)
 
     public CarWashCustomer Read(int entityId)
     {
-        return data.Customers.First(customer => customer.Id == entityId);
+        return data.Customers.FirstOrDefault(customer => customer.Id == entityId)
+         ?? throw new KeyNotFoundException(
+             $"Клиент с идентификатором {entityId} не найден.");
     }
 
     public List<CarWashCustomer> ReadAll()

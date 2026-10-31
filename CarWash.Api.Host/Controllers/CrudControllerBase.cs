@@ -54,6 +54,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     /// </summary>
     [HttpPut("{id}")]
     [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
     [ProducesResponseType(500)]
     public ActionResult<TDto> Edit(TKey id, TCreateUpdateDto newDto)
     {
@@ -71,6 +72,15 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
 
             return Ok(result);
         }
+        catch (KeyNotFoundException ex)
+        {
+            logger.LogWarning(
+                ex,
+                "Запись с идентификатором {id} не найдена при выполнении метода {method} контроллера {controller}",
+                id, nameof(Edit), GetType().Name);
+
+            return NotFound();
+        }
         catch (Exception ex)
         {
             logger.LogError(
@@ -87,6 +97,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     /// </summary>
     [HttpDelete("{id}")]
     [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
     [ProducesResponseType(500)]
     public IActionResult Delete(TKey id)
     {
@@ -103,6 +114,15 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
                 nameof(Delete), GetType().Name);
 
             return Ok();
+        }
+        catch (KeyNotFoundException ex)
+        {
+            logger.LogWarning(
+                ex,
+                "Запись с идентификатором {id} не найдена при выполнении метода {method} контроллера {controller}",
+                id, nameof(Delete), GetType().Name);
+
+            return NotFound();
         }
         catch (Exception ex)
         {
@@ -153,7 +173,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     /// </summary>
     [HttpGet("{id}")]
     [ProducesResponseType(200)]
-    [ProducesResponseType(204)]
+    [ProducesResponseType(404)]
     [ProducesResponseType(500)]
     public ActionResult<TDto> Get(TKey id)
     {
@@ -169,7 +189,16 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
                 "Метод {method} контроллера {controller} успешно выполнен",
                 nameof(Get), GetType().Name);
 
-            return result != null ? Ok(result) : NoContent();
+            return Ok(result);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            logger.LogWarning(
+                ex,
+                "Запись с идентификатором {id} не найдена при выполнении метода {method} контроллера {controller}",
+                id, nameof(Delete), GetType().Name);
+
+            return NotFound();
         }
         catch (Exception ex)
         {

@@ -17,7 +17,9 @@ public class CarWashProcedureInMemoryRepository(CarWashData data)
 
     public CarWashProcedure Read(int entityId)
     {
-        return data.Procedures.First(procedure => procedure.Id == entityId);
+        return data.Procedures.FirstOrDefault(procedure => procedure.Id == entityId)
+        ?? throw new KeyNotFoundException(
+            $"Процедура с идентификатором {entityId} не найдена.");
     }
 
     public List<CarWashProcedure> ReadAll()

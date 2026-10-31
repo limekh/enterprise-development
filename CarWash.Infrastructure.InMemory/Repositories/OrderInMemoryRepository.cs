@@ -17,7 +17,9 @@ public class OrderInMemoryRepository(CarWashData data)
 
     public Order Read(int entityId)
     {
-        return data.Orders.First(order => order.Id == entityId);
+        return data.Orders.FirstOrDefault(order => order.Id == entityId)
+        ?? throw new KeyNotFoundException(
+            $"Заказ с идентификатором {entityId} не найден.");
     }
 
     public List<Order> ReadAll()
