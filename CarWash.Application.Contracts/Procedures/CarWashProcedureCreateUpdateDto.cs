@@ -1,4 +1,5 @@
 ﻿using CarWash.Domain.Shared.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace CarWash.Application.Contracts.Procedures;
 

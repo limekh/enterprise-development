@@ -1,4 +1,6 @@
-﻿namespace CarWash.Application.Contracts.Customers;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CarWash.Application.Contracts.Customers;
 
 /// <summary>
 /// DTO для POST/PUT запросов к клиентам
