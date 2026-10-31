@@ -1,4 +1,5 @@
-﻿using CarWash.Application.Contracts.Cars;
+﻿using CarWash.Application.Contracts;
+using CarWash.Application.Contracts.Cars;
 
 namespace CarWash.Api.Host.Controllers;
 
@@ -6,7 +7,7 @@ namespace CarWash.Api.Host.Controllers;
 /// Контроллер CRUD-операций над автомобилями
 /// </summary>
 public class CarController(
-    ICarService crudService,
+    IApplicationService<CarDto, CarCreateUpdateDto, int> crudService,
     ILogger<CarController> logger)
     : CrudControllerBase<CarDto, CarCreateUpdateDto, int>(
         crudService, logger);

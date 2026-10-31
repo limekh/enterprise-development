@@ -1,4 +1,5 @@
-﻿using CarWash.Application.Contracts.Orders;
+﻿using CarWash.Application.Contracts;
+using CarWash.Application.Contracts.Orders;
 using CarWash.Domain;
 using CarWash.Domain.Entities;
 
@@ -11,7 +12,7 @@ public class OrderService(
     IRepository<Order, int> orderRepository,
     IRepository<Car, int> carRepository,
     IRepository<CarWashProcedure, int> procedureRepository)
-    : IOrderService
+    : IApplicationService<OrderDto, OrderCreateUpdateDto, int>
 {
     public OrderDto Create(OrderCreateUpdateDto dto)
     {

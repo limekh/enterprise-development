@@ -23,9 +23,12 @@ builder.Services.AddSingleton<IRepository<Order, int>, OrderInMemoryRepository>(
 
 // CRUD-службы
 builder.Services.AddScoped<ICarWashCustomerService, CarWashCustomerService>();
-builder.Services.AddScoped<ICarService, CarService>();
-builder.Services.AddScoped<ICarWashProcedureService, CarWashProcedureService>();
-builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IApplicationService<CarDto, CarCreateUpdateDto, int>,
+    CarService>();
+builder.Services.AddScoped<IApplicationService<CarWashProcedureDto, CarWashProcedureCreateUpdateDto, int>,
+    CarWashProcedureService>();
+builder.Services.AddScoped<IApplicationService<OrderDto, OrderCreateUpdateDto, int>,
+    OrderService>();
 
 // Аналитическая служба
 builder.Services.AddScoped<IAnalyticsService, AnalyticsService>();

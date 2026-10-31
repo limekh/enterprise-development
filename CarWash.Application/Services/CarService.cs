@@ -1,4 +1,5 @@
-﻿using CarWash.Application.Contracts.Cars;
+﻿using CarWash.Application.Contracts;
+using CarWash.Application.Contracts.Cars;
 using CarWash.Domain;
 using CarWash.Domain.Entities;
 
@@ -10,7 +11,7 @@ namespace CarWash.Application.Services;
 public class CarService(
     IRepository<Car, int> carRepository,
     IRepository<CarWashCustomer, int> customerRepository)
-    : ICarService
+    : IApplicationService<CarDto, CarCreateUpdateDto, int>
 {
     public CarDto Create(CarCreateUpdateDto dto)
     {
