@@ -21,6 +21,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     /// </summary>
     [HttpPost]
     [ProducesResponseType(201)]
+    [ProducesResponseType(400)]
     [ProducesResponseType(500)]
     public ActionResult<TDto> Create(TCreateUpdateDto newDto)
     {
@@ -54,6 +55,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     /// </summary>
     [HttpPut("{id}")]
     [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
     public ActionResult<TDto> Edit(TKey id, TCreateUpdateDto newDto)
