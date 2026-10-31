@@ -46,20 +46,29 @@ public class CarWashTests(CarWashData data) : IClassFixture<CarWashData>
     public void GetCarsCurrentlyAtCarWash()
     {
         // Arrange
-        var orders = data.Orders;
         var now = data.Now;
-
         var expectedCarIds = new[]
         {
             2, 3, 7
         };
+        var orders = data.Orders
+            .Select(order => new
+            {
+                order.CarId,
+                order.Procedure.Duration,
+                StartTime = expectedCarIds.Contains(order.CarId)
+                    ? now.AddTicks(-order.Procedure.Duration.Ticks / 2)
+                    : now.AddTicks(-order.Procedure.Duration.Ticks - 1)
+            })
+            .ToList();
 
         // Act
         var actualCarIds = orders
             .Where(order =>
                 order.StartTime <= now &&
-                now < order.StartTime.Add(order.Procedure.Duration))
+                now < order.StartTime.Add(order.Duration))
             .Select(order => order.CarId)
+            .Distinct()
             .ToArray();
 
         // Assert

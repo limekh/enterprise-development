@@ -19,7 +19,7 @@ public class AnalyticsController(
     [ProducesResponseType(200)]
     [ProducesResponseType(204)]
     [ProducesResponseType(500)]
-    public ActionResult<TopCustomerDto>
+    public ActionResult<List<TopCustomerDto>>
         GetTopFiveCustomersByVisitCount()
     {
         logger.LogInformation(

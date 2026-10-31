@@ -1,4 +1,4 @@
-﻿namespace CarWash.Infrastructure.InMemory;
+﻿namespace CarWash.Domain;
 
 /// <summary>
 /// Интерфейс репозитория для CRUD-операций

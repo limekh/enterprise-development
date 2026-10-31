@@ -1,6 +1,6 @@
 ﻿using CarWash.Application.Contracts.Customers;
+using CarWash.Domain;
 using CarWash.Domain.Entities;
-using CarWash.Infrastructure.InMemory;
 
 namespace CarWash.Application.Services;
 

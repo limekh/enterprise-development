@@ -1,4 +1,5 @@
-﻿using CarWash.Domain.Data;
+﻿using CarWash.Domain;
+using CarWash.Domain.Data;
 using CarWash.Domain.Entities;
 
 namespace CarWash.Infrastructure.InMemory.Repositories;

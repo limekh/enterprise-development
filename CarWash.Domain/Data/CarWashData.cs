@@ -11,7 +11,7 @@ public class CarWashData
     /// <summary>
     /// Текущее время для тестовых данных
     /// </summary>
-    public DateTime Now { get; } = new(2026, 9, 17, 12, 0, 0);
+    public DateTime Now => DateTime.Now;
 
     /// <summary>
     /// Клиенты автомойки

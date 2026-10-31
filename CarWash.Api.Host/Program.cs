@@ -4,9 +4,9 @@ using CarWash.Application.Contracts.Customers;
 using CarWash.Application.Contracts.Orders;
 using CarWash.Application.Contracts.Procedures;
 using CarWash.Application.Services;
+using CarWash.Domain;
 using CarWash.Domain.Data;
 using CarWash.Domain.Entities;
-using CarWash.Infrastructure.InMemory;
 using CarWash.Infrastructure.InMemory.Repositories;
 using System.Reflection;
 
