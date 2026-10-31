@@ -1,17 +1,18 @@
 ﻿using CarWash.Application.Contracts;
-using CarWash.Domain.Data;
+using CarWash.Domain;
+using CarWash.Domain.Entities;
 
 namespace CarWash.Application.Services;
 
 /// <summary>
 /// Аналитическая служба автомойки
 /// </summary>
-public class AnalyticsService(CarWashData data) : IAnalyticsService
+public class AnalyticsService(IRepository<Order, int> orderRepository) : IAnalyticsService
 {
     /// <inheritdoc/>
     public List<TopCustomerDto> GetTopFiveCustomersByVisitCount()
     {
-        return data.Orders
+        return orderRepository.ReadAll()
             .GroupBy(order => order.Car.CustomerId)
             .Select(group => new TopCustomerDto(
                 group.Key,
@@ -25,9 +26,9 @@ public class AnalyticsService(CarWashData data) : IAnalyticsService
     /// <inheritdoc/>
     public List<int> GetCarsCurrentlyAtCarWash()
     {
-        var now = data.Now;
+        var now = DateTime.Now;
 
-        return data.Orders
+        return orderRepository.ReadAll()
             .Where(order =>
                 order.StartTime <= now &&
                 now < order.StartTime.Add(order.Procedure.Duration))
@@ -38,7 +39,7 @@ public class AnalyticsService(CarWashData data) : IAnalyticsService
     /// <inheritdoc/>
     public List<int> GetTopPopularProcedures()
     {
-        return data.Orders
+        return orderRepository.ReadAll()
             .GroupBy(order => order.ProcedureId)
             .Select(group => new
             {
@@ -55,7 +56,7 @@ public class AnalyticsService(CarWashData data) : IAnalyticsService
     /// <inheritdoc/>
     public DateTime GetWashBoxReleaseTime(int washBoxNumber)
     {
-        return data.Orders
+        return orderRepository.ReadAll()
             .Where(order => order.WashBoxNumber == washBoxNumber)
             .Select(order =>
                 order.StartTime.Add(order.Procedure.Duration))
@@ -65,7 +66,7 @@ public class AnalyticsService(CarWashData data) : IAnalyticsService
     /// <inheritdoc/>
     public decimal CalculateProcedureRevenue(int procedureId)
     {
-        return data.Orders
+        return orderRepository.ReadAll()
             .Where(order => order.ProcedureId == procedureId)
             .Sum(order => order.Procedure.Price);
     }
