@@ -10,4 +10,4 @@ public record CarWashProcedureDto(
     string Name,
     CarCategory CarCategory,
     decimal Price,
-    TimeSpan Duration);
+    TimeSpan Duration) : IHasId<int>;

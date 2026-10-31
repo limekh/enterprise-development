@@ -8,4 +8,4 @@ public record OrderDto(
     int CarId,
     int ProcedureId,
     DateTime StartTime,
-    int WashBoxNumber);
+    int WashBoxNumber) : IHasId<int>;

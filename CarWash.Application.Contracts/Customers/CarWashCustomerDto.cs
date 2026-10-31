@@ -8,4 +8,4 @@ public record CarWashCustomerDto(
     string LastName,
     string FirstName,
     string? Patronymic,
-    string Phone);
+    string Phone) : IHasId<int>;

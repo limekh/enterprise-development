@@ -10,4 +10,4 @@ public record CarDto(
     CarCategory CarCategory,
     string LicensePlate,
     string Brand,
-    int CustomerId);
+    int CustomerId) : IHasId<int>;

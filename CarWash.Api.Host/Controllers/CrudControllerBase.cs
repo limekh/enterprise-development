@@ -12,7 +12,7 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
     IApplicationService<TDto, TCreateUpdateDto, TKey> appService,
     ILogger<CrudControllerBase<TDto, TCreateUpdateDto, TKey>> logger)
     : ControllerBase
-    where TDto : class
+    where TDto : class, IHasId<TKey>
     where TCreateUpdateDto : class
     where TKey : struct
 {
@@ -184,7 +184,6 @@ public abstract class CrudControllerBase<TDto, TCreateUpdateDto, TKey>(
 
     private static object? GetId(TDto dto)
     {
-        var property = typeof(TDto).GetProperty("Id");
-        return property?.GetValue(dto);
+        return dto.Id;
     }
 }
